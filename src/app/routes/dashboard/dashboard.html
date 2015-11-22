@@ -1,0 +1,32 @@
+<!-- navbar -->
+<div class="content-container">
+  <fb-menu style="width: 100%;"></fb-menu>
+</div>
+<div class="content-container">
+  <md-sidenav id="sidebar"
+              md-is-locked-open="$mdMedia('gt-md')"
+              class="md-whiteframe-z2"
+              md-component-id="left"
+              style="width: 246px; min-width: 246px !important;">
+    <fb-accounts-sidebar></fb-accounts-sidebar>
+  </md-sidenav>
+
+  <md-content id="dashboard" flex>
+    <div layout="column">
+      <div layout="row" class="dashboard-container" ng-class="{sm: $mdMedia('sm')}">
+        <div class="balances">
+          <fb-money-indicator type="incomes"></fb-money-indicator>
+          <fb-money-indicator type="expenses"></fb-money-indicator>
+          <fb-money-indicator type="available"></fb-money-indicator>
+        </div>
+      </div>
+      <div layout="row" layout-align="space-between center" class="content header">
+        <div class="title">Últimas Transacciones</div>
+        <div class="sub-title" ui-sref="transactions">Todas las transacciones</div>
+      </div>
+      <div layout="row" class="content">
+        <fb-table-container type="transactions" flex></fin-widget-table-container>
+      </div>
+    </div>
+  </md-content>
+</div>

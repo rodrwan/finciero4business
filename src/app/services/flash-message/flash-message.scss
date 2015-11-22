@@ -1,0 +1,21 @@
+@import 'variables/colors';
+
+.toast {
+  background-color: $color-primary !important;
+
+  &.warning {
+    background-color: $color-danger-toast !important;
+  }
+
+  .content {
+    padding: 10px;
+
+    .icon {
+      color: $color-white !important;
+    }
+    span {
+      color: $color-white;
+      margin-left: 10px;
+    }
+  }
+}

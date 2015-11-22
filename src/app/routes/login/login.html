@@ -1,0 +1,26 @@
+<div class="login-container">
+  <div class="login">
+    <div ng-show="isLogin">
+        <div class="logo" layout="row" layout-align="center center">
+          <img src="assets/img/logo-big.png" alt="finciero-logo">
+        </div>
+        <fb-login-form></fb-login-form>
+      </div>
+    </div>
+    <div ng-hide="isLogin">
+      <div class="form-container" layout="column" layout-align="center center" flex="40" flex-md="55" flex-sm="90">
+        <div layout="column">
+          <span class="title" layout="row" layout-align="center center">
+            Recuperar Contraseña
+          </span>
+          <fin-forgot-password-form></fin-forgot-password-form>
+        </div>
+      </div>
+      <div layout="row" layout-align="center center" class="options">
+        <a ng-click="isLogin = !isLogin">
+          Iniciar Sesión
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

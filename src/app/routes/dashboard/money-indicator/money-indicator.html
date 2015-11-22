@@ -1,0 +1,31 @@
+<div
+  ng-class="{
+    'balance income': isOfType('incomes'),
+    'balance expenses': isOfType('expenses'),
+    'balance avalaible': isOfType('available'),
+  }"
+  >
+  <div class="top">
+    {{title.toUpperCase()}}
+  </div>
+  <div class="down">
+    <div ng-hide="isLoading">
+      <div class="number">
+      <span class="signs">+ $ &nbsp;</span>
+      <span class="total">
+        ${{money | roundNumber | number | commaToDot}}
+      </span>
+    </div>
+    </div>
+    <div ng-show="isLoading">
+      <md-progress-circular
+        md-diameter="25"
+        class="loading white"
+        md-mode="indeterminate">
+      </md-progress-circular>
+    </div>
+    <div class="text">
+      {{subTitle}}
+    </div>
+  </div>
+</div>

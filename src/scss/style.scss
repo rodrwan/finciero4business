@@ -1,0 +1,423 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500|Montserrat|Lato);
+/*@import 'public/bower_components/normalize-css/normalize.css';*/
+
+$navbar-background-color: white;
+$sidemenu-text-padding: 0 12.5px;
+html, body {
+  height: 100%;
+  width: 100%;
+  background-color: $navbar-background-color;
+  font-family: 'Lato', sans-serif;
+  min-width: 1055px;
+  margin:0;
+  padding:0;
+}
+div.container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+}
+div.navbar-container {
+  height: 120px;
+  width: 100%;
+  background-color: $navbar-background-color;
+}
+
+nav.navbar {
+  display: flex;
+  height: 100%;
+  width: 100%;
+
+  .links-container {
+    flex-grow: 1;
+    background-color: $navbar-background-color;
+    height: 70%;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .link {
+      color: rgb(46,54,64);
+      display: flex;
+      border-radius: 4px;
+      flex-direction: column;
+      justify-content: center;
+      margin: 0 5px;
+      padding: 0 15px;
+      height: 70px;
+      text-align: center;
+      cursor: pointer;
+      font-weight: 700;
+
+      .icon {
+        font-size: 24px;
+      }
+
+      .title {
+        font-size: 14px;
+        text-transform: uppercase;
+
+        a {
+          text-decoration: none;
+          color: rgb(46,54,64);
+          &:visited {
+            text-decoration: none;
+          }
+          &:hover {
+            text-decoration: none;
+          }
+          &:active {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+
+    .active {
+      background-color: #00c5c7;
+      color: white;
+      a {
+        color: white !important;
+      }
+    }
+  }
+
+  .side-container {
+    background-color: white;
+    width: 300px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .logo-container {
+      width: 90%;
+      height: 90%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .controls {
+      width: 100%;
+      height: 100%;
+      text-align: right;
+      padding: 20px 30px 0 0;
+      font-size: 11px;
+      font-family: Montserrat;
+      color: #4a5763;
+
+      a:link, a:visited, a:hover, a:active {
+        color:#a6a6a7;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+div.content-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: row;
+
+  div.sidemenu-container {
+    display: flex;
+    width: 246px;
+    background-color: rgb(86,95,109);
+    flex-direction: column;
+
+    div.accounts {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      flex-grow: 1;
+    }
+
+    div.buttons {
+      display: flex;
+      height: 47px;
+      flex-direction: row;
+      background-color: #18c5cb;
+      color: #ffffff;
+      align-items: center;
+      color: #ffffff;
+      font: 300 11px Montserrat;
+      cursor: pointer;
+
+      div.button {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+        .icon-add::before {
+          font-weight: 900;
+          font-size: 20px;
+        }
+      }
+
+      div.button:first-child {
+        width: 145px;
+      }
+
+      div.with-subtitle {
+        width: 100px;
+        height: 47px;
+        flex-direction: column;
+
+        .icon-refresh::before {
+          font-weight: 400;
+          font-size: 18px;
+        }
+
+        .row {
+          display: flex;
+          align-items: center;
+        }
+
+        .row:last-child {
+          color: #9eebec;
+          height: 7px;
+          font: 300 9px / 25px Montserrat;
+        }
+      }
+
+      .separator {
+        width: 1px;
+        height: 47px;
+        background-color: #06d3d7;
+      }
+    }
+
+    div.bank-account-container {
+      width: 246px;
+      display: flex;
+      flex-direction: column;
+
+      div.header {
+        background-color: #26333e;
+        height: 41px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: $sidemenu-text-padding;
+
+        div.title {
+          height: 22px;
+          color: #fefefe;
+          font-family: Montserrat;
+          text-transform: uppercase;
+          font-size: 12px;
+          display: flex;
+          align-items: center;
+        }
+
+        div.balance {
+          height: 22px;
+          width: 92px;
+          text-align: center;
+          background-color: #2d3b48;
+          font: 400 11px / 25px Montserrat;
+          color:#76bb5d;
+          border-radius: 3px;
+        }
+      }
+
+
+      .sub-accounts-container {
+        display: flex;
+        flex-wrap: wrap;
+        padding: $sidemenu-text-padding;
+        font-size: 10px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+
+        .sub-account {
+          width: 100%;
+          text-decoration: none;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font: 300 10px / 25px Montserrat;
+          color: #ffffff;
+
+            .number {
+              color: #adb3b8;
+
+            }
+          }
+
+          div.balance {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            width: 72px;
+            height: 16px;
+            text-align: center;
+            font: 300 10px / 25px Montserrat;
+            border-radius: 3px;
+            padding-right: 4px;
+            color: #ffffff;
+          }
+
+          div.positive {
+            background-color: #76bb5d;
+          }
+
+          div.negative {
+            background-color: #f3565d;
+          }
+        }
+      }
+    }
+
+  .dashboard-container {
+    display: flex;
+    width: 100%;
+    & .balances {
+      display: flex;
+      background-color: red;
+      flex-grow: 1;
+      height: 168px;
+
+      & .balance {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-grow: 1;
+        display: flex;
+        height: 168px;
+        color: #ffffff;
+        text-align: center;
+
+        & .top {
+          height: 60px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-transform: uppercase;
+          font: 700 14px / 40px Montserrat;
+        }
+
+        & .down {
+          flex-grow: 1;
+
+          & .number {
+            display: flex;
+            font: 400 42px / 40px Montserrat;
+
+            & .signs {
+              font: 400 20px / 40px Montserrat;
+            }
+          }
+
+          & .text {
+            font: 300 12px / 40px Montserrat;
+          }
+        }
+      }
+
+      .income {
+        background-color: #76bb5d;
+      }
+
+      .expenses {
+        background-color: #f3565d;
+      }
+
+      .avalaible {
+        background-color: #00c5c7;
+      }
+    }
+  }
+}
+
+div.login-container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background-image: url(http://i.imgur.com/5HcsgaP.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #fff;
+}
+
+.login {
+  background-color: red; /* just for the demo */
+  display: inline-block;
+  text-align: left;
+  height: auto;
+  width: 338px;
+  background-color: #ffffff;
+  border-radius: 3px;
+  box-shadow: 1px 1px 5px #333;
+  padding: 10px;
+  margin: auto auto;
+
+  & .logo {
+    display: flex;
+    align-items: center;
+    height: 150px;
+  }
+
+  & .inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+
+    & .button-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 109px;
+
+      & .button {
+        height: 39px;
+        width: 148px;
+        background-color: #00bfc3;
+        color: #ffffff;
+        font: 300 15px Montserrat;
+        border-radius: 5px;
+        border: 0;
+      }
+    }
+
+    & .field {
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+
+      & .label {
+        display: flex;
+        height: 25px;
+        flex-direction: row;
+        justify-content: space-between;
+        color: #a6a6a7;
+        font: 400 12px / 18px Montserrat;
+
+        & a:link, a:visited, a:hover, a:active {
+          color: #a6a6a7;
+        }
+      }
+
+      & .input {
+        height: 38px;
+        border-radius: 4px;
+        border-width: 1px;
+        border-color: rgba(228,229,230, 0.3);
+        padding-left: 5px;
+      }
+    }
+  }
+}

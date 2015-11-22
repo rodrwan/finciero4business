@@ -1,0 +1,7 @@
+<md-toast class="toast" ng-class="{warning: !type}">
+  <div class="content">
+    <md-icon ng-show="type" class="icon" md-svg-icon="recomendations" alt="Recomendations Icon"></md-icon>
+    <i ng-hide="type" class="fa fa-close fa-lg"></i>
+    <span flex>{{message}}</span>
+  </div>
+</md-toast>

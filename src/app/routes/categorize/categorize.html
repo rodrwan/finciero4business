@@ -1,0 +1,60 @@
+<legend>Manual category</legend>
+
+<page-input></page-input>
+<table ng-hide="loading" class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Description
+          <button class="btn btn-mini btn-link" ng-click="sort('description')">
+            <i class="fa fa-sort"></i>
+          </button></th>
+      <th>Count
+          <button class="btn btn-mini btn-link" ng-click="sort('count')">
+            <i class="fa fa-sort"></i>
+          </button></th>
+      <th>Current Category</th>
+      <th></th>
+      <th>C Constraints</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr id="row{{$index}}" bindonce ng-repeat="transaction in transactions | orderBy:orderProp:direction">
+      <td style="width:50px" bo-text="{{$index+1}}"></td>
+      <td style="width:400px" bo-text="transaction.description"></td>
+      <td style="width:350px" bo-text="transaction.count"></td>
+      <td style="width:400px" bo-text="transaction.subCategoryId"></td>
+      <td style="min-width:350px">
+        <input-select
+          transaction="transaction.description"
+          category="transaction.subCategoryId"
+          categories="categories"
+          transactionid="$index">
+        </input-select>
+        <unknown-button
+          description="transaction.description"
+          count="transaction.count"
+          category="transaction.subCategoryId"
+          transactionid="$index">
+        </unknown-button>
+      </td>
+      <td style="width:200px">
+        <input-checkbox
+          transactions="transactions"
+          description="transaction.description"
+          transactionid="$index"
+          checked="transaction.checked">
+        </input-checkbox>
+      </td>
+      <input type="hidden" ng-model="actualCat" bo-value="transaction.subCategoryId">
+    </tr>
+  </tbody>
+</table>
+<div ng-show="loading" class="loading"></div>
+<div class="pages">
+<button ng-show="currentPage > 0" ng-click="prevPage()">Prev</button>
+{{currentPage+1}}
+<button ng-click="nextPage()">Next</button>
+<br/>
+<!-- <button ng-click="submitUpdate()">Send batch</button> -->
+</div>
