@@ -1,0 +1,10 @@
+<div class="tabs">
+  <ul layout="row">
+    <li ng-repeat="item in items" ng-class="{active: $state.includes(item.state)}" ui-sref="{{item.state}}">
+      <span layout="column" layout-align="space-around center">
+        <span class="title">{{item.title}}</span>
+        <span class="subtitle">{{item.subtitle}}</span>
+      </span>
+    </li>
+  </ul>
+</div>

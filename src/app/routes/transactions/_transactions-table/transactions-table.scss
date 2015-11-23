@@ -1,0 +1,112 @@
+@import 'variables/colors';
+
+#table-transactions {
+  .no-transactions {
+  }
+
+  .transactions {
+    &>ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+
+      &>li {
+        text-align: center;
+        padding: 15px 10px;
+        border-bottom: $color-default-light 1px solid;
+        color: $color-font-default;
+
+        &.ignored {
+          text-decoration: line-through;
+          color: $color-default-dark;
+        }
+
+        .date {
+          color: $color-default-dark
+        }
+
+        .lateral-space {
+          padding: 0 7px;
+        }
+
+        .search-icon {
+          margin-left: 10px;
+
+          i {
+            cursor: pointer;
+          }
+        }
+
+        .description-search {
+          padding: 0 10%;
+        }
+
+        .amount {
+          &.positive {
+            color: $color-success;
+          }
+          &.negative {
+            color: $color-danger;
+          }
+        }
+
+        .transaction-select {
+          text-align: left;
+          
+          .load {
+            margin: -25px 0 0 5px;
+            height: 12px;
+          }
+        }
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        .options {
+          color: $color-default-dark;
+          cursor: pointer;
+
+          .dropdown {
+            top: 64px;
+          }
+
+          .dropdown-menu {
+            text-align: center;
+          }
+
+          .dropdown-content {
+            background-color: $color-white;
+            color: $color-font-default;
+            padding: 5px 20px;
+            cursor: default;
+
+            ul {
+              list-style: none;
+
+              li {
+                margin: 5px 0;
+                &:hover {
+                  a {
+                    border-bottom: dotted 1px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &>li:first-child {
+        padding: 14px 10px;
+        font-weight: 500;
+        color: $color-default-dark;
+      }
+    }
+  }
+
+  .pagination {
+    padding: 10px 0;
+    background-color: $color-default-light;
+  }
+}

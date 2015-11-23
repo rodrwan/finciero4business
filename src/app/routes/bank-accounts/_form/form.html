@@ -1,0 +1,19 @@
+<form ng-submit="submitForm()"
+  name="bankAccountFrm" class="frm frm-fluid" novalidate>
+
+  <select ng-options="bank.name for bank in banks | filter:{active:true}"
+    ng-model="bankAccount.bank" required>
+    <option value="" disabled>Banco</option>
+  </select>
+
+  <input ng-model="bankAccount.title"
+    type="text" name="title" placeholder="Nombra a esta cuenta" required>
+
+  <rut-input ng-model="bankAccount.username"
+    name="rut" placeholder="Rut" required></rut-input>
+
+  <input ng-model="bankAccount.password"
+    type="password" name="password" placeholder="Contraseña bancaria" required>
+
+  <input ng-class="{'btn-disabled': bankAccountFrm.$invalid}" type="submit" class="btn btn-primary">
+</form>

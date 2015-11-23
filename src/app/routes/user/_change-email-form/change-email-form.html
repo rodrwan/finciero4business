@@ -1,0 +1,14 @@
+<form name="changeEmailForm" ng-submit="sendForm()" novalidate>
+  <div class="form-group">
+    <input fin-focus-blur-form ng-model="form.current" type="email" disabled>
+  </div>
+  <div class="form-group">
+    <input ng-model="form.email" fin-focus-blur-form ng-minlength="5" ng-maxlength="50" type="email" placeholder="Nuevo Email" name="email" ng-class="{error: (changeEmailForm.email.$error.required || changeEmailForm.email.$error.minlength || changeEmailForm.email.$error.maxlength)  && !changeEmailForm.email.$pristine}" required>
+  </div>
+  <div class="form-group">
+    <input ng-model="form.emailConfirm" fin-focus-blur-form ng-minlength="5" ng-maxlength="50" type="email" name="emailConfirm" placeholder="Repetir Nuevo Email" ng-class="{error: (changeEmailForm.emailConfirm.$error.required || changeEmailForm.emailConfirm.$error.minlength || changeEmailForm.emailConfirm.$error.maxlength || changeEmailForm.emailConfirm.$error.match)  && !changeEmailForm.emailConfirm.$pristine}" match="form.email" required>
+  </div>
+  <div layout="row" layout-align="end center" class="form-group button">
+    <md-button type="submit" ng-disabled="changeEmailForm.$invalid">Actualizar</md-button>
+  </div>
+</form>

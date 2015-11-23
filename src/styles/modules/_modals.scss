@@ -1,0 +1,40 @@
+@import 'variables/colors';
+@import 'variables/fonts';
+@import 'mixins/border_radius';
+
+.modal {
+  border-top: $color-primary solid 5px;
+  width: 310px;
+
+  md-content {
+    padding: 0;
+
+    .title {
+      font-size: $font-size-modal;
+      font-weight: 300;
+      padding-top: 20px;
+    }
+
+    .options {
+      padding-top: 20px;
+
+      button {
+        text-transform: none;
+        padding: 5px 0px;
+        font-weight: 400;
+        margin: 0;
+        @include border-radius(0px);
+
+        &.cancel, &.cancel:hover, &.cancel:focus {
+          background-color: $color-default;
+          color: $color-font-default;
+        }
+
+        &.submit, &.submit:hover, &.submit:focus {
+          background-color: $color-primary;
+          color: $color-white;
+        }
+      }
+    }
+  }
+}

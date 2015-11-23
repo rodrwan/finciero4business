@@ -1,0 +1,12 @@
+<div id="user-notifications" layout="column">
+  <h4 class="title">Define cuando quieres recibir notificaciones a tu correo</h4>
+  <div class="notifications">
+    <ul>
+      <li ng-repeat="notification in notifications">
+        <div layout="row" layout-align="start center">
+          <fin-notification notification="notification"></fin-notification>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

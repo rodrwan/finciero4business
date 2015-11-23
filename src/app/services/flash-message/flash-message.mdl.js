@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('finciero.business.svc.flashMessage', [
+  angular.module('finciero.svc.flashMessage', [
     ]);
 
 }());

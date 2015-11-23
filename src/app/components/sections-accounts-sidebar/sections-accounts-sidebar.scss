@@ -1,0 +1,139 @@
+@import 'mixins/border_radius';
+@import 'variables/colors';
+@import 'variables/fonts';
+@import 'variables/dimensions';
+
+#sidebar {
+  width: $width-sidebar;
+  min-width: $width-sidebar;
+  max-width: $width-sidebar;
+  background-color: $color-sidebar-inactive;
+}
+
+.sections-accounts-sidebar {
+  background-color: $color-sidebar-inactive;
+  color: $color-white;
+  padding: 0;
+
+  .title {
+      font-size: $font-size-sm;
+      font-weight: 300;
+      padding: 8px 20px;
+      border: none;
+      background-color: inherit;
+      color: $color-sidebar-title;
+      cursor: default;
+    }
+
+  ul {
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+
+    li.section, li .bankAccount {
+      list-style: none;
+      font-size: $font-size-base;
+      font-weight: 500;
+      padding: 15px 0;
+      padding-left: 20px;
+      text-decoration: none;
+      color: $color-sidebar-list-normal;
+
+      &.active, &:hover {
+        background-color: $color-sidebar-active;
+        border-left: solid 3px $color-primary;
+        padding-left: 17px;
+        color: $color-sidebar-list-active;
+
+        .icon {
+          color: $color-sidebar-list-active !important;
+        }
+      }
+
+      i {
+        padding-right: 12px;
+      }
+    }
+  }
+
+  .sections ul {
+    border-bottom: 1px solid $color-sidebar-active;
+
+    li .icon {
+      height: 16px;
+      width: 16px;
+      margin-right: 10px;
+      color: $color-sidebar-list-normal !important;
+
+      &.fix {
+        height: 18px;
+        width: 18px;
+        margin-right: 8px;
+      }
+    }
+  }
+
+  .banks .scroll {
+    ul {
+      background-color: $color-sidebar-inactive;
+
+      li {
+        .bankAccount {
+          &.active {
+            border-top: $color-sidebar-inactive 1px solid;
+          }
+          i  {
+            float: right;
+          }
+          .loading-bank-account {
+            margin-top: -25px;
+            height: 20px;
+          }
+        }
+
+        .subAccount {
+          background-color: $color-sidebar-active;
+          color: $color-sidebar-list-active;
+          font-size: $font-size-sm;
+          font-weight: 400;
+          padding: 10px 20px;
+
+          .v-uid {
+            color: $color-sidebar-list-normal;
+          }
+        }
+
+        .loading-bank-account-box {
+          height: 45px;
+          margin-top: -10px;
+        }
+      }
+    }
+  }
+
+  .options {
+    background-color: $color-primary;
+
+    button {
+      @include border-radius(0);
+      text-transform: none;
+      padding: 5px 5px;
+      font-weight: 400;
+      margin: 0;
+
+      .icon {
+        margin: 0px 3px;
+        padding: 3px;
+        color: $color-white !important;
+      }
+
+      span {
+        font-size: $font-size-base;
+      }
+
+      &:nth-child(2) {
+        border-left: $color-primary-light solid 1px;
+      }
+    }
+  }
+}

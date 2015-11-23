@@ -1,0 +1,15 @@
+@import 'variables/colors';
+
+.budgets-items-list {
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      border-bottom: $color-default-light 1px solid;
+    }
+    li:last-child {
+      border-bottom: none;
+    }
+  }
+}

@@ -1,0 +1,46 @@
+@import 'variables/colors';
+
+.loading {
+  &.md-default-theme .md-inner {
+    .md-gap {
+      border-top-color: $color-primary;
+      border-bottom-color: $color-primary;
+    }
+    .md-right .md-half-circle {
+      border-right-color: $color-primary;
+      border-top-color: $color-primary;
+    }
+    .md-left .md-half-circle {
+      border-left-color: $color-primary;
+      border-top-color: $color-primary;
+    }
+  }
+  &.white.md-default-theme .md-inner {
+    .md-gap {
+      border-top-color: $color-white;
+      border-bottom-color: $color-white;
+    }
+    .md-right .md-half-circle {
+      border-right-color: $color-white;
+      border-top-color: $color-white;
+    }
+    .md-left .md-half-circle {
+      border-left-color: $color-white;
+      border-top-color: $color-white;
+    }
+  }
+  &.sidebar.md-default-theme .md-inner {
+    .md-gap {
+      border-top-color: $color-sidebar-list-normal;
+      border-bottom-color: $color-sidebar-list-normal;
+    }
+    .md-right .md-half-circle {
+      border-right-color: $color-sidebar-list-normal;
+      border-top-color: $color-sidebar-list-normal;
+    }
+    .md-left .md-half-circle {
+      border-left-color: $color-sidebar-list-normal;
+      border-top-color: $color-sidebar-list-normal;
+    }
+  }
+}

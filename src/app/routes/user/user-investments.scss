@@ -1,0 +1,77 @@
+@import 'bourbon';
+@import 'variables/colors';
+@import 'variables/radiuses';
+@import 'variables/fonts';
+@import 'mixins/border_radius';
+
+#user-investments {
+  padding-bottom: 30px;
+  background-color: $color-white;
+  @include border-bottom-radius($radius - 1px);
+
+  .investments {
+    .active-investments, .liquidated-investments {
+      .title {
+        padding: 20px 0 10px 15px;
+        font-size: $font-size-lg;
+        font-weight: 500;
+      }
+
+      ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+
+        li {
+          padding: 10px 20px;
+          border-bottom: $color-default 1px solid;
+
+          .name {
+            font-size: $font-size-xl;
+            font-weight: 100;
+          }
+
+          .amount {
+            font-size: 1.25em;
+          }
+
+          .date {
+            padding-left: 10px
+          }
+        }
+
+        li:first-child {
+          padding-bottom: 5px;
+          font-weight: 500;
+          color: $color-default-dark;
+        }
+      }
+    }
+
+  }
+
+  .no-investments {
+    &>span {
+      padding: 7px 0;
+      text-align: center;
+    }
+
+    .title {
+      padding-top: 30px;
+      font-size: $font-size-xl;
+      font-weight: 500;
+    }
+
+    .bold {
+      font-weight: 500;
+      color: $color-default-darker;
+    }
+  }
+
+  .options {
+    padding-top: 10px;
+    i {
+      margin: 0 5px;
+    }
+  }
+}

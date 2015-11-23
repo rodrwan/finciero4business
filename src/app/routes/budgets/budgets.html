@@ -1,0 +1,59 @@
+<!-- navbar -->
+<div class="content-container">
+  <fb-menu style="width: 100%;"></fb-menu>
+</div>
+<div class="content-container">
+  <md-sidenav id="sidebar"
+              md-is-locked-open="$mdMedia('gt-md')"
+              class="md-whiteframe-z2"
+              md-component-id="left"
+              style="width: 246px; min-width: 246px !important;">
+    <fb-accounts-sidebar></fb-accounts-sidebar>
+  </md-sidenav>
+
+  <md-content id="budgets" flex>
+    <div layout="column">
+      <div layout="row" layout-align="center" class="header">
+        <span class="title">
+          Presupuestos
+        </span>
+        <span flex></span>
+        <md-button class="md-fab" aria-label="Add budget" ng-click="showAddBudgetDialog($event)">
+          <span layout="row" layout-align="center center">
+            <i class="fa fa-plus"></i>
+          </span>
+        </md-button>
+      </div>
+      <div ng-hide="budgets.length === 0" layout="row" layout-md="column" layout-sm="column" class="content" flex>
+        <div flex="70" flex-md="100" flex-sm="100" class="budgets-list" ng-class="{row: $mdMedia('gt-md'), column: !$mdMedia('gt-md')}">
+          <div class="list-header" layout="row">
+            <span>Presupuesto por categorías</span>
+            <span flex></span>
+            <span>Acción</span>
+          </div>
+          <div class="list-content">
+            <fin-budgets-list budgets="budgets" show-options="true"></fin-budgets-list>
+          </div>
+        </div>
+        <div class="budgets-chart" flex flex-md="100" flex-sm="100" ng-class="{row: $mdMedia('gt-md'), column: !$mdMedia('gt-md')}">
+          <div class="chart-header">
+            Presupuesto Mensual
+          </div>
+          <div class="chart-content">
+            <fin-budgets-chart budgets="budgets"></fin-budgets-chart>
+          </div>
+        </div>
+      </div>
+      <div class="no-budgets" ng-show="budgets.length === 0" layout="column" layout-align="center center" flex>
+        <span class="title">Agrega tu primer presupuesto ahora</span>
+        <span>Comienza a ordenar tus finanzas de forma inteligente, <span class="bold">agrega</span> todos los gastos que tienes durante el mes.</span>
+        <span>Así podrás tener un seguimiento constante de tus gastos y te notificaremos cuando excedas alguno.</span>
+        <span>
+          <md-button class="btn btn-primary" ng-click="showAddBudgetDialog($event)">
+            Agregar Presupuesto
+          </md-button>
+        </span>
+      </div>
+    </div>
+  </md-content>
+</div>

@@ -1,6 +1,6 @@
 (function () {
   'use strict';
 
-  angular.module('finciero.business.svc.session', []);
+  angular.module('finciero.svc.session', []);
 
 })();

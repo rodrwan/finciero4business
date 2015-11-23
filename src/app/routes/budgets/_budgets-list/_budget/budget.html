@@ -1,0 +1,21 @@
+<div class="budget" layout="row">
+  <span ng-show="budget.thisIsOnlyCategory()" flex="35" flex-sm="45">
+    {{budget.getCategoryName()}}
+  </span>
+  <span ng-hide="budget.thisIsOnlyCategory()" flex="35" flex-sm="45">
+    {{budget.getSubCategoryName()}}
+  </span>
+  <span ng-hide="showOptions" flex></span>
+  <progress max="100" value="{{percentage}}" flex="40" flex-md="30" flex-sm="25"></progress>
+  <span class="total">
+    <!-- <span class="amount">${{budget.spent | roundNumber | number | commaToDot}}</span> -->
+    ${{budget.total | roundNumber | number | commaToDot}}
+  </span>
+  <span ng-if="showOptions" flex></span>
+  <span ng-if="showOptions" class="options" ng-click="showEditDialog($event)">
+    <i class="fa fa-lg fa-pencil"></i>
+  </span>
+  <span ng-if="showOptions" class="options" ng-click="showRemoveDialog($event)">
+    <i class="fa fa-lg fa-trash"></i>
+  </span>
+</div>

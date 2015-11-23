@@ -87,6 +87,7 @@ app.use(function (req, res, next) {
 
 // app.use(express.static(path.join(__dirname, 'build')));
 app.use('/', express.static('public/build'));
+app.use('/', express.static('public/.tmp'));
 app.use('/bower_components', express.static('public/bower_components'));
 
 function requireLogin (req, res, next) {

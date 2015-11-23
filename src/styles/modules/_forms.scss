@@ -1,0 +1,183 @@
+@import 'bourbon';
+@import 'mixins/border_radius';
+@import 'mixins/box_shadow';
+@import 'variables/colors';
+@import 'variables/radiuses';
+
+$input-height: 40px;
+$input-border-size: 1px;
+$color-error: #E78B49;
+
+form {
+  .form-group {
+    padding: 20px 30px 0 30px;
+
+    .label {
+      font-weight: 500;
+      color: $color-default-dark;
+      margin-bottom: 5px;
+      padding: 0;
+
+      &.center {
+        text-align: center;
+      }
+    }
+
+    .sub-label {
+      text-align: center;
+      font-size: $font-size-md;
+      margin-top: 5px;
+    }
+
+    .label-warning {
+      //@include box-shadow(0px 0px 5px 0px rgba(#bba240, 0.75));
+      //@include linear-gradient(#f9e8ad, #d2be6d);
+      //border: solid $input-border-size #bba240;
+      @include border-radius($radius);
+      background-color: #FCEFC4;
+      color: $color-font-default;
+      margin-top: 15px;
+      font-size: $font-size-base;
+      opacity: 0.9;
+      height: 30px;
+    }
+
+    .other-label {
+      font-weight: 400;
+      color: $color-default-dark;
+      border-bottom: dotted 1px $color-default-light;
+      font-size: $font-size-md;
+    }
+
+    input {
+      @include border-radius($radius - 1px);
+      @include box-sizing(border-box);
+      background-color: $color-white;
+      border: $color-default-light $input-border-size solid;
+      color: $color-font-default;
+      height: $input-height;
+      width: 100%;
+      padding: 0 15px;
+
+      &.focus{
+        border: $color-default-dark $input-border-size solid;
+      }
+
+      &.error {
+        @include box-shadow(0px 0px 5px 0px rgba($color-error, 0.75));
+        border: rgba($color-error, 0.5) $input-border-size solid;
+      }
+
+      &::-webkit-input-placeholder {
+        color: $color-font-default;
+      }
+      &:-moz-placeholder {
+        color: $color-font-default;
+      }
+      &::-moz-placeholder {
+        color: $color-font-default;
+      }
+      &:-ms-input-placeholder {
+        color: $color-font-default;
+      }
+    }
+
+    select {
+      height: $input-height;
+      width: 100%;
+      background-color: $color-white;
+      border: $color-default-light 1px solid;
+      color: $color-font-default;
+
+      &.focus{
+        border: $color-default-dark $input-border-size solid;
+      }
+
+      &.error {
+        @include box-shadow(0px 0px 5px 0px rgba($color-error, 0.75));
+        border: rgba($color-error, 0.5) $input-border-size solid;
+      }
+    }
+
+    .input-left {
+      @include border-radius($radius);
+      border: $color-default-light $input-border-size solid;
+
+      .icon {
+        @include border-left-radius($radius - 1px);
+        background-color: $color-default;
+        border: none;
+        height: $input-height + 2px;
+        width: 40px;
+
+        .bold {
+          font-weight: 500;
+          font-size: 1.2em;
+        }
+      }
+
+      input {
+        @include border-right-radius($radius - 1px);
+        @include border-left-radius(0);
+        @include box-sizing(border-box);
+        color: $color-font-default;
+        background-color: $color-white;
+        border: none;
+        height: $input-height;
+        width: 100%;
+        border-left: none;
+        padding: 0 15px;
+        height: $input-height + 2px;
+      }
+
+      &.focus{
+        border: $color-default-dark $input-border-size solid;
+      }
+
+      &.error {
+        @include box-shadow(0px 0px 5px 0px rgba($color-error, 0.75));
+        border: rgba($color-error, 0.5) $input-border-size solid;
+      }
+    }
+    .input-right {
+      @include border-radius($radius);
+      border: $color-default-light $input-border-size solid;
+
+      .icon {
+        @include border-right-radius($radius - 1px);
+        background-color: $color-default;
+        border: none;
+        height: $input-height + 2px;
+        width: 40px;
+
+        .bold {
+          font-weight: 500;
+          font-size: 1.2em;
+        }
+      }
+
+      input {
+        @include border-left-radius($radius - 1px);
+        @include border-right-radius(0);
+        @include box-sizing(border-box);
+        color: $color-font-default;
+        background-color: $color-white;
+        border: none;
+        height: $input-height;
+        width: 100%;
+        border-right: none;
+        padding: 0 15px;
+        height: $input-height + 2px;
+      }
+
+      &.focus{
+        border: $color-default-dark $input-border-size solid;
+      }
+
+      &.error {
+        @include box-shadow(0px 0px 5px 0px rgba($color-error, 0.75));
+        border: rgba($color-error, 0.5) $input-border-size solid;
+      }
+    }
+  }
+}

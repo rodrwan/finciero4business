@@ -1,0 +1,32 @@
+<div class="bank-account" layout="row" layout-align="start center">
+  <div flex="35" flex-sm="30" layout="column">
+    <span class="bank-name">
+      {{bankAccount.bank.name}}
+    </span>
+    <span class="bank-titles" hide-sm>
+      <table>
+        <tr ng-repeat="subAccount in bankAccount.subAccounts">
+          <td>{{ subAccount.name }}</td>
+          <td></td>
+          <td>{{ subAccount.balance }}</td>
+        </tr>
+      </table>
+    </span>
+  </div>
+  <div class="custom-name" flex="35" flex-sm="30">
+    {{bankAccount.title}}
+  </div>
+  <div class="amount" flex="20" flex-sm="40">
+    <span ng-show="bankAccount.status === 'success'" class="label" ng-class="{success: bankAccount.getBalance() >= 0, danger: bankAccount.getBalance() < 0}">
+      $ {{bankAccount.getBalance() | roundNumber | number | commaToDot}}
+    </span>
+  </div>
+  <div flex="10" class="options" hide-sm>
+    <a ng-click="showEditDialog($event)">
+      <i class="fa fa-pencil fa-lg"></i>
+    </a>
+    <a ng-click="showRemoveDialog($event)">
+      <i class="fa fa-trash fa-lg"></i>
+    </a>
+  </div>
+</div>

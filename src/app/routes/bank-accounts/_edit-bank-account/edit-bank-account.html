@@ -1,0 +1,62 @@
+<form name="editBankAccountForm" ng-submit="sendForm()" novalidate>
+  <div class="form-group" layout="row" layout-align="center center">
+    <select fin-focus-blur-form
+            ng-model="editBankAccount.bank"
+            ng-options="bank.id as bank.name for bank in banks | filter:{status:'active'}"
+            ng-class="{error: editBankAccountForm.bank.$error.required && !editBankAccountForm.bank.$pristine}"
+            name="bank"
+            required>
+      <option value="">Selecciona un banco</option>
+    </select>
+  </div>
+  <div class="form-group" layout="column">
+    <div layout="row" layout-align="space-between center">
+      <span class="label">
+        RUT
+      </span>
+      <span class="other-label">
+        ej: 17.653.775-2
+      </span>
+    </div>
+    <span flex>
+      <input fin-focus-blur-form
+             ng-model="editBankAccount.username"
+             type="text"
+             name="username"
+             ng-class="{error: editBankAccountForm.username.$error.required && !editBankAccountForm.username.$pristine}"
+             ng-rut
+             required>
+    </span>
+  </div>
+  <div class="form-group" layout="column">
+    <span class="label">
+      Contraseña
+    </span>
+    <span class="input-left"
+          layout="row"
+          ng-class="{error: (editBankAccountForm.password.$error.required || editBankAccountForm.password.$error.minlength) && !editBankAccountForm.password.$pristine}">
+      <span layout="row" layout-align="center center" class="icon">
+        <i class="fa fa-lock"></i>
+      </span>
+      <span flex>
+        <input fin-focus-blur-form is-input-group ng-model="editBankAccount.password" type="password" name="password" ng-minlength="3" required>
+      </span>
+    </span>
+  </div>
+  <div class="form-group" layout="column">
+    <div layout="row" layout-align="space-between center">
+      <span class="label">
+        Nombre personalizado
+      </span>
+      <span class="other-label">
+        (opcional)
+      </span>
+    </div>
+    <span flex>
+      <input fin-focus-blur-form ng-model="editBankAccount.title" type="text" name="title">
+    </span>
+  </div>
+  <div class="form-group" layout="row" layout-align="center center">
+    <md-button class="submit" type="submit" ng-disabled="editBankAccountForm.$invalid">Agregar</md-button>
+  </div>
+</form>

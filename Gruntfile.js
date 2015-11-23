@@ -30,6 +30,17 @@ module.exports = function (grunt) {
             '* Copyright (c) <%= grunt.template.today("yyyy") %> ',
 
     // Task configuration.
+    includeSource: {
+      options: {
+        basePath: 'public/build',
+        baseUrl: '/'
+      },
+      myTarget: {
+        files: {
+          'public/index.html': 'src/index.html'
+        }
+      }
+    },
     concat: {
       options: {
         banner: '<%= meta.banner %>'
@@ -49,6 +60,8 @@ module.exports = function (grunt) {
           '<%= meta.srcPathJs %>services/**/*.ctl.js',
           '<%= meta.srcPathJs %>filters/**/*.mdl.js',
           '<%= meta.srcPathJs %>filters/**/*.flt.js',
+          '<%= meta.srcPathJs %>components/**/*.mdl.js',
+          '<%= meta.srcPathJs %>components/**/*.drv.js'
         ],
         dest: '<%= meta.buildApp %><%= pkg.name %>.js'
       }
@@ -94,16 +107,23 @@ module.exports = function (grunt) {
     sass: {
       dist: {
         options: {
+          includePaths: [
+            'src/../public/bower_components/bourbon/dist/',
+            'src/styles/'
+          ],
           bundleExec: true
         },
         files: [{
           expand: true,
-          flatten: true,
+          cwd: 'src/',
           src: [
-            '<%= meta.srcPathCss %>style.scss',
-            '<%= meta.srcPathCss %>reset.scss'
+            'styles/app.scss',
+            'scss/style.scss',
+            'scss/reset.scss',
+            'styles/app.scss',
+            'app/{,**/}*.scss'
           ],
-          dest: 'public/build/assets/css', // '.tmp/',
+          dest: 'public/.tmp/',
           ext: '.css'
         }]
       }
@@ -113,7 +133,7 @@ module.exports = function (grunt) {
       build: {
         files: [{
           expand: true,
-          cwd: '.tmp/',
+          cwd: 'public/.tmp/',
           src: [
             '*.css'
           ],
@@ -140,7 +160,8 @@ module.exports = function (grunt) {
             dest: '<%= meta.buildApp %>',
             src: [
               '**/routes/**/*.html',
-              '**/directives/**/*.html'
+              '**/directives/**/*.html',
+              '**/components/**/*.html',
             ],
             cwd: '<%= meta.srcPathJs %>',
             expand: true
@@ -166,20 +187,12 @@ module.exports = function (grunt) {
     },
 
     wiredep: {
-      task: {
-
-        // Point to the files that should be updated when
-        // you run `grunt wiredep`
+      options: {},
+      app: {
         src: [
           'public/index.html'   // .html support...
         ],
-
-        options: {
-          // See wiredep's configuration documentation for the options
-          // you may pass:
-
-          // https://github.com/taptapship/wiredep#configuration
-        }
+        ignorePath:  /\.\.\//
       }
     },
 
@@ -187,7 +200,8 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           src: [
-            '.tmp'
+            '.tmp',
+            'public/.tmp'
           ]
         }]
       }
@@ -202,15 +216,16 @@ module.exports = function (grunt) {
           'src/index.html'
         ],
         tasks: [
+          'clean',
           'sass',
-          'cssmin',
+          // 'cssmin',
           'ngconstant:test',
           'concat',
           'ngAnnotate',
           'uglify',
           'copy',
+          'includeSource:myTarget',
           'wiredep',
-          'clean'
         ],
         options: {
           livereload: {
@@ -222,7 +237,8 @@ module.exports = function (grunt) {
   });
 
   // These plugins provide necessary tasks.
-  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-include-source');
+  grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
@@ -241,11 +257,12 @@ module.exports = function (grunt) {
     'ngAnnotate',
     'uglify',
     'copy',
-    'clean',
-    'wiredep'
+    'wiredep',
+    'includeSource:myTarget'
   ]);
 
   grunt.registerTask('dev', [
+    'clean',
     'sass',
     // 'cssmin',
     'ngconstant:test',
@@ -253,8 +270,8 @@ module.exports = function (grunt) {
     'ngAnnotate',
     'uglify',
     'copy',
+    'includeSource:myTarget',
     'wiredep',
-    'clean',
     'watch'
   ]);
 

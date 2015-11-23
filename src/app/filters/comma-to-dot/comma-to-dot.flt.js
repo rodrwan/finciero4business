@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('finciero.business.flt.commaToDot')
+  angular.module('finciero.flt.commaToDot')
     .filter('commaToDot', function () {
       return function (input) {
         return input.replace(/,/g, '.');

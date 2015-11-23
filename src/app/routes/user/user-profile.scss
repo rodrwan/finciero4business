@@ -1,0 +1,59 @@
+@import 'bourbon';
+@import 'variables/colors';
+@import 'variables/fonts';
+@import 'variables/radiuses';
+
+#user-profile {
+  padding: 30px 20px;
+  background-color: $color-white;
+  @include border-bottom-radius($radius - 1px);
+
+  .forms {
+    margin-top: 60px;
+
+    &>div {
+      &:nth-child(2) {
+        border-left: $color-default solid 1px;
+        &.sm {
+          border-left: none;
+          border-top: $color-default solid 1px;
+          margin-top: 20px;
+          padding-top: 20px;
+        }
+      }
+    }
+
+    .profile-form {
+      .form-title {
+        font-size: $font-size-xl;
+        font-weight: 300;
+      }
+      .form-container {
+        margin-top: 10px;
+      }
+      .form-group {
+        padding: 15px 0 0 0;
+
+        input {
+          &:disabled {
+            background-color: $color-default-light;
+            color: $color-default-dark;
+          }
+        }
+        &.button {
+          button {
+            text-transform: none;
+            font-weight: 400;
+            background-color: $color-primary;
+            color: $color-white;
+
+            &:disabled {
+              background-color: $color-default;
+              color: $color-default-dark;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+<div class="chart-filter-select-date">
+  <select
+    ng-model="filterValues.option"
+    ng-options="filter.value as filter.name for filter in filterValues.data"
+    ng-change="change()">
+  </select>
+</div>

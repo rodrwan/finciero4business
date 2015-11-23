@@ -1,0 +1,33 @@
+div.cont {
+  padding: $space;
+  background-color: lighten($color-base-grey, 49%);
+  @include box-shadow(0 1px 1px 0px rgba(0, 0, 0, .25));
+}
+
+// Spaces
+div.cont {
+  &.cont-pad-none {
+    padding: 0;
+  }
+  &.cont-pad-xs {
+    padding: $space-xs;
+  }
+  &.cont-pad-sm {
+    padding: $space-sm;
+  }
+  &.cont-pad-lg {
+    padding: $space-lg;
+  }
+  &.cont-mar-none {
+    margin: 0;
+  }
+  &.cont-mar-xs {
+    margin: $space-xs;
+  }
+  &.cont-mar-sm {
+    margin: $space-sm;
+  }
+  &.cont-mar-lg {
+    margin: $space-lg;
+  }
+}

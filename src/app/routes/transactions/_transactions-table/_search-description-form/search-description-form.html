@@ -1,0 +1,22 @@
+<form 
+  name="searchDescriptionForm" 
+  ng-submit="sendSearchDescriptionForm()"
+  class="search-description-form"
+  novalidate>
+  <md-input-container 
+    md-no-float 
+    layout="row">
+    <span flex>
+      <input 
+        ng-model="searchDescriptionForm.text" 
+        type="text" 
+        placeholder="Buscar por descripción">
+    </span>
+    <span>
+    <i 
+      class="fa fa-close"  
+      ng-click="closeButton()">
+    </i>
+    </span>
+  </md-input-container>
+</form>

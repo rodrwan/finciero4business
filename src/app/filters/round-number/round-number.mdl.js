@@ -1,6 +1,6 @@
 (function () {
   'use strict';
 
-  angular.module('finciero.business.flt.roundNumber', []);
+  angular.module('finciero.flt.roundNumber', []);
 
 }());

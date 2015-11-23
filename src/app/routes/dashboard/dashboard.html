@@ -1,7 +1,6 @@
 <!-- navbar -->
-<div class="content-container">
-  <fb-menu style="width: 100%;"></fb-menu>
-</div>
+<fb-menu style="width: 100%;"></fb-menu>
+
 <div class="content-container">
   <md-sidenav id="sidebar"
               md-is-locked-open="$mdMedia('gt-md')"
@@ -11,7 +10,7 @@
     <fb-accounts-sidebar></fb-accounts-sidebar>
   </md-sidenav>
 
-  <md-content id="dashboard" flex>
+  <md-content id="dashboard" style="background-color: #f2f1f5" flex>
     <div layout="column">
       <div layout="row" class="dashboard-container" ng-class="{sm: $mdMedia('sm')}">
         <div class="balances">
@@ -22,10 +21,10 @@
       </div>
       <div layout="row" layout-align="space-between center" class="content header">
         <div class="title">Últimas Transacciones</div>
-        <div class="sub-title" ui-sref="transactions">Todas las transacciones</div>
+        <div class="sub-title"><a href="#/transactions">Todas las transacciones</a></div>
       </div>
       <div layout="row" class="content">
-        <fb-table-container type="transactions" flex></fin-widget-table-container>
+        <fin-widget-table-container type="transactions" flex></fin-widget-table-container>
       </div>
     </div>
   </md-content>

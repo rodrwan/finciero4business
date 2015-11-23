@@ -1,0 +1,79 @@
+@import 'bourbon';
+@import 'variables/colors';
+@import 'variables/radiuses';
+@import 'variables/fonts';
+@import 'mixins/border_radius';
+
+#chart-filter-select-sub-accounts {
+  .dropdown {
+    top: 75px;
+  }
+  .dropdown-menu {
+    cursor: pointer;
+    @include border-radius($radius);
+    height: 35px;
+    width: 200px;
+    background-color: $color-white;
+    border: solid 1px $color-default-light;
+
+    .select {
+      height: inherit;
+      .text {
+
+      }
+      .icon {
+        @include border-right-radius(5px - 1px);
+        height: inherit;
+        padding: 0 5px;
+        background-color: $color-default;
+
+        &>div:nth-child(1) {
+          height: inherit;
+        }
+      }
+    }
+  }
+  .dropdown-content {
+    width: 200px;
+
+    .options {
+      background-color: $color-white;
+      padding: 10px;
+
+      md-checkbox {
+        margin: 0;
+        &.md-default-theme.md-checked .md-icon {
+          background-color: $color-primary !important;
+        }
+      }
+    }
+    .footer {
+      padding: 10px;
+      background-color: $color-default;
+
+      .all {
+        color: $color-primary;
+        border-bottom: dotted 1px;
+        font-size: $font-size-base;
+        cursor: pointer;
+      }
+      .button {
+        @include border-radius($radius);
+        background-color: $color-primary;
+        color: $color-white;
+        cursor: pointer;
+        margin: 0;
+        text-transform: none;
+        min-height: 25px;
+        min-width: 75px;
+        line-height: 0;
+        font-weight: 400;
+
+        &:disabled {
+          background-color: $color-default-light;
+          color: $color-default-dark;
+        }
+      }
+    }
+  }
+}

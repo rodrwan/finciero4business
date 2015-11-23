@@ -3,21 +3,31 @@
 <head>
   <meta charset="utf-8" />
   <title>Finciero Business!</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
 
   <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- <link rel="Shortcut Icon" type="image/x-icon" href="assets/img/favicon.ico"> -->
-  <!-- bower:css -->
-  <!-- endbower -->
-  <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
-  <!-- bower:js -->
-
-  <!-- endbower -->
-  <script src="app/finciero-business.js"></script>
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+  <!-- endbuild -->
+  <!-- css auto include -->
+    <!-- include: "type": "css", "basePath": "public/.tmp", "baseUrl":".tmp", "files": ["styles/app.css", "app/**/*.css", "scss/style.css", "!scss/reset.css", "!app/components/tabs/tabs.css"] -->
+  <!-- endAutoInclude -->
+  <!-- <link rel="stylesheet" type="text/css" href="assets/css/style.css" /> -->
 </head>
 
 <body autoscroll="true" ng-controller="AppCtrl" style="">
   <div class="container" ui-view></div>
+  <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <!-- endbower -->
+  <!-- endbuild -->
+  <!-- js auto include -->
+    <!-- include: "type": "js", "basePath": "public/build", "files": ["app/finciero-business.js"] -->
+  <!-- endAutoInclude -->
   <script src="//localhost:8001/livereload.js"></script>
 </body>
 </html>

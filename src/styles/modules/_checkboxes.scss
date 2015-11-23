@@ -1,0 +1,96 @@
+// iOS Switch style checkbox
+label.chk-switch {
+  $chk-default-color: lighten($color-base-grey, 5%);
+  $chk-on-color: $color-blue;
+  $chk-hover-color: darken($chk-default-color, 15%);
+  $chk-hover-on-color: darken($chk-on-color, 15%);
+  display: inline-block;
+  &:hover {
+    input {
+      + div.chk-switch-wrapper {
+        border-color: $chk-hover-color;
+        div.chk-switch-wrapper-inner {
+          div.chk-switch-caption {
+            color: $chk-hover-color;
+          }
+        }
+      }
+    }
+  }
+
+  input {
+    display: none;
+    &:checked {
+
+      + div.chk-switch-wrapper {
+        border-color: $chk-on-color;
+
+        div.chk-switch-wrapper-inner {
+          margin-left: -32px;
+          div.chk-switch-toggle {
+            background-color: $chk-on-color;
+          }
+        }
+      }
+
+      &:hover {
+        + div.chk-switch-wrapper {
+          border-color: $chk-hover-on-color;
+          div.chk-switch-wrapper-inner {
+            div.chk-switch-caption {
+              color: $chk-hover-on-color;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  > div.chk-switch-wrapper {
+    display: block;
+    height: 28px;
+    width: 60px;
+    padding: 2px;
+    cursor: pointer;
+    border: solid 3px $chk-default-color;
+    overflow: hidden;
+    @include border-radius(20px);
+    @include transition-property(border-color, background-color);
+    @include transition-duration(.2s);
+    div.chk-switch-wrapper-inner {
+      width: 150px;
+      @include transition-property(margin);
+      @include transition-duration(.2s);
+      @include clearfix;
+      div.chk-switch-caption {
+        @include transition-property(color);
+        @include transition-duration(.2s);
+        color: $chk-default-color;
+        float: left;
+        padding-top: 2px;
+        text-transform: uppercase;
+        font-size: 13px;
+
+        &.chk-switch-caption-off {
+          margin-right: 3px;
+          margin-left: 3px;
+          color: $chk-default-color;
+        }
+        &.chk-switch-caption-on {
+          margin-left: 6px;
+          color: $chk-on-color;
+        }
+      }
+
+      div.chk-switch-toggle {
+        float: left;
+        width: 18px;
+        height: 18px;
+        background-color: $chk-default-color;
+        @include border-radius(50%);
+      }
+
+    }
+
+  }
+}

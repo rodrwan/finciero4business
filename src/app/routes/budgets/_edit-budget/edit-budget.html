@@ -1,0 +1,29 @@
+<form name="editBudgetForm" ng-submit="sendForm()" novalidate>
+  <div class="form-group" layout="row" layout-align="center center">
+    <select fin-focus-blur-form
+            ng-model="elementSelectedId"
+            ng-options="element.id as element.name for element in elements"
+            ng-class="{error: editBudgetForm.element.$error.required && !editBudgetForm.element.$pristine}"
+            name="element"
+            required>
+      <option value="">Seleccionar categoría</option>
+    </select>
+  </div>
+  <div class="form-group" layout="column">
+    <span class="label center">
+      Ingresar Monto
+    </span>
+    <span class="input-left" layout="row" ng-class="{error: (editBudgetForm.total.$error.required || editBudgetForm.total.$error.min) && !editBudgetForm.total.$pristine}">
+      <span layout="row" layout-align="center center" class="icon">
+        <i class="fa fa-usd"></i>
+      </span>
+      <span flex>
+        <input fin-focus-blur-form is-input-group ng-model="updateBudget.total" type="number" name="total" min="1" required>
+      </span>
+    </span>
+  </div>
+  <div class="options" layout="row">
+    <md-button class="cancel" type="reset" ng-click="cancelForm()" flex>Cancelar</md-button>
+    <md-button class="submit" type="submit" ng-disabled="editBudgetForm.$invalid" flex>Editar</md-button>
+  </div>
+</form>

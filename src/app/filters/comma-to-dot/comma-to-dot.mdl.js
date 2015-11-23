@@ -1,6 +1,6 @@
 (function () {
   'use strict';
 
-  angular.module('finciero.business.flt.commaToDot', []);
+  angular.module('finciero.flt.commaToDot', []);
 
 }());

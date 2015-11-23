@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('finciero.business.dashboard.drv.tableContainer')
-    .directive('fbTableContainer', function ($log, FlashMessage, Transactions) {
+    .directive('fbTableContainer', function ($log, FlashMessage, Transaction) {
       return {
         restrict: 'E',
         templateUrl: function ($element, $attrs) {
@@ -18,7 +18,7 @@
             var options = {
               per_page: 5
             };
-            Transactions.getList(options).then(function (data) {
+            Transaction.then(function (data) {
               $scope.transactions = data;
               $scope.isLoading = true;
             }, function (err) {

@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('finciero.business.drv.fbMenu')
-  .directive('fbMenu', function (MENU, store) {
+  .directive('fbMenu', function (MENU, store, $state) {
     return {
       restrict: 'E',
       scope: {
@@ -10,37 +10,38 @@
       },
       templateUrl: 'app/directives/menu/menu.html',
       link: function ($scope) {
-        function filterMenu (menu, user) {
-          var newMenu = [];
+        $scope.$state = $state;
+        // function filterMenu (menu, user) {
+        //   var newMenu = [];
 
-          menu.forEach(function (data) {
-            if (data.permission.indexOf(user) >= 0) {
-              newMenu.push(data);
-            }
-          });
+        //   menu.forEach(function (data) {
+        //     if (data.permission.indexOf(user) >= 0) {
+        //       newMenu.push(data);
+        //     }
+        //   });
 
-          return newMenu;
-        }
+        //   return newMenu;
+        // }
 
-        if (!store.get('session')) {
-          console.log('no session active');
-          $scope.menu = filterMenu($scope.menu, 'public');
-        } else {
-          console.log('session started');
-          $scope.menu = filterMenu($scope.menu, 'private');
-        }
+        // if (!store.get('session')) {
+        //   console.log('no session active');
+        //   $scope.menu = filterMenu($scope.menu, 'public');
+        // } else {
+        //   console.log('session started');
+        //   $scope.menu = filterMenu($scope.menu, 'private');
+        // }
 
-        $scope.$on('logout', function () {
-          console.log('bye bye');
-          $scope.menu = MENU;
-          $scope.menu = filterMenu($scope.menu, 'public');
-        });
+        // $scope.$on('logout', function () {
+        //   console.log('bye bye');
+        //   $scope.menu = MENU;
+        //   $scope.menu = filterMenu($scope.menu, 'public');
+        // });
 
-        $scope.$on('login', function () {
-          console.log('hello');
-          $scope.menu = MENU;
-          $scope.menu = filterMenu($scope.menu, 'private');
-        });
+        // $scope.$on('login', function () {
+        //   console.log('hello');
+        //   $scope.menu = MENU;
+        //   $scope.menu = filterMenu($scope.menu, 'private');
+        // });
       }
     };
   });

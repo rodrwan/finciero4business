@@ -1,0 +1,23 @@
+@import 'variables/fonts';
+@import 'variables/colors';
+
+.bank-account {
+  padding: 10px 0;
+  .bank-name {
+    font-size: $font-size-xxl;
+    font-weight: 100;
+  }
+
+  .bank-titles {
+    color: $color-primary;
+    padding-right: 10px;
+  }
+
+  .custom-name {
+    color: $color-font-default;
+  }
+
+  .amount {
+    font-size: 1.25em;
+  }
+}

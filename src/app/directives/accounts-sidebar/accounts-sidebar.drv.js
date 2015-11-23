@@ -77,7 +77,7 @@
 
           $scope.showAddBankAccountDialog = function (ev) {
             $mdDialog.show({
-              templateUrl: 'scripts/routes/bank-accounts/new-bank-account-dialog.html',
+              templateUrl: 'app/routes/bank-accounts/new-bank-account-dialog.html',
               clickOutsideToClose: true,
               targetEvent: ev
             });

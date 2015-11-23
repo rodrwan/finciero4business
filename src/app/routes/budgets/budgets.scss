@@ -1,0 +1,73 @@
+@import 'bourbon';
+@import 'variables/colors';
+@import 'variables/fonts';
+@import 'variables/radiuses';
+@import 'mixins/border_radius';
+
+#budgets {
+  .budgets-list {
+    border: $color-default-light solid 1px;
+    background-color: $color-white;
+
+    &.row {
+      @include border-left-radius($radius);
+    }
+
+    &.column {
+      @include border-radius($radius);
+      margin-bottom: 15px;
+    }
+
+    .list-header {
+      padding: 17px 20px;
+      border-bottom: $color-default-light solid 1px;
+      font-size: $font-size;
+      font-weight: 500;
+    }
+  }
+
+  .budgets-chart {
+    background-color: $color-white;
+    border: $color-default-light solid 1px;
+
+    &.row {
+      @include border-right-radius($radius);
+      border-left: none;
+    }
+
+    &.column {
+      @include border-radius($radius);
+    }
+
+    .chart-header {
+      padding: 17px 20px;
+      font-size: $font-size;
+      font-weight: 500;
+    }
+    .chart-content {
+      padding: 17px 20px;
+    }
+  }
+
+  .no-budgets {
+    @include border-radius($radius);
+    background-color: $color-white;
+    border: $color-default-light solid 1px;
+    padding: 15px 10px;
+
+    &>span {
+      padding: 7px 0;
+      text-align: center;
+    }
+
+    .title {
+      font-size: $font-size-xl;
+      font-weight: 500;
+    }
+
+    .bold {
+      font-weight: 500;
+      color: $color-default-darker;
+    }
+  }
+}

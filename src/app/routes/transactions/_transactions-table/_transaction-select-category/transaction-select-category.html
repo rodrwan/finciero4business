@@ -1,0 +1,9 @@
+<select
+  chosen
+  class="transaction-select-category"
+  ng-model="subCategorySelected"
+  ng-disabled="transaction.ignored"
+  on-change="updateTransactionSubCategory"
+  placeholder="Seleccione una categoría"
+  ng-options="subCategory as subCategory.name group by subCategory.categoryName for subCategory in ::subCategories">
+</select>

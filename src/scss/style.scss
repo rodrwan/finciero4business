@@ -112,6 +112,11 @@ nav.navbar {
       a:link, a:visited, a:hover, a:active {
         color:#a6a6a7;
         text-decoration: none;
+
+        &.name-active {
+          color: #00c4c7;
+          text-decoration: underline;
+        }
       }
     }
   }
@@ -358,7 +363,6 @@ div.login-container {
   width: 338px;
   background-color: #ffffff;
   border-radius: 3px;
-  box-shadow: 1px 1px 5px #333;
   padding: 10px;
   margin: auto auto;
 
@@ -419,5 +423,371 @@ div.login-container {
         padding-left: 5px;
       }
     }
+  }
+}
+
+div.user-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #f2f1f5;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+
+    .form-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      background-color: #ffffff;
+      width: 468px;
+      height: 100%;
+      padding-bottom: 50px;
+      margin-bottom: 20px;
+
+      .title {
+        height: 60px;
+        color: #a6a6a7;
+        font: 24px Montserrat;
+        display: flex;
+        align-items: center;
+      }
+
+      .inputs-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+
+        .row {
+          display: flex;
+          width: 80%;
+          padding-bottom: 20px;
+
+          $input-height: 38px;
+          .left {
+            display: flex;
+            align-items: center;
+            width: 90px;
+            height: $input-height;
+            justify-content: flex-end;
+            margin-right: 20px;
+            color: #26333e;
+            font: 700 14px Lato;
+            text-transform: uppercase;
+          }
+
+          .right {
+            display: flex;
+            flex-direction: column;
+            width: 280px;
+            align-items: flex-end;
+
+            a:link, a:visited, a:hover, a:active {
+              color: #2d3b48;
+              font: 300 10px / 18px Montserrat;
+            }
+
+            .input {
+              height: $input-height;
+              padding-left: 20px;
+              width: 240px;
+              color: #2d3b48;
+              font: 12px Montserrat;
+              background-color: #ededed;
+              border-radius: 4px;
+              border: 1px solid rgb(220, 223, 223);
+            }
+          }
+        }
+
+
+        .button-container {
+          display: flex;
+          justify-content: center;
+
+          button {
+            width: 101px;
+            height: 40px;
+            border: 0;
+            border-radius: 4px;
+            background-color: #00bfc3;
+            color: #ffffff;
+            font: 300 12px Montserrat;
+          }
+        }
+      }
+    }
+  }
+}
+
+div.account-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #f2f1f5;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+  }
+}
+
+div.planning-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #f2f1f5;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    min-width: 989px;
+    display: flex;
+
+    h2 {
+      color: #a6a6a7;
+      font: 24px / 40px Montserrat;
+    }
+  }
+
+  $table-background-color: #fff;
+
+  .table-container {
+    width: 100%;
+    border: 1px solid rgb(221,223, 224);
+    border-radius: 3px;
+
+    .tabs {
+      background-color: #f7f7f7;
+
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        height: 59px;
+        display: table-row;
+
+        li {
+          display: table-cell;
+          vertical-align: middle;
+          width: 132px;
+          text-align: center;
+          height: 56px;
+          align-self: center;
+
+          a:link, a:visited, a:hover, a:active {
+            text-decoration: none;
+            color:#a6a6a7;
+            font: 400 12px Montserrat;
+          }
+
+          &.active {
+            background-color: $table-background-color;
+            border-top: 4px solid rgb(103, 188, 193);
+            a:link, a:visited, a:hover, a:active {
+              text-decoration: none;
+              color: #2d3b48;
+              font: 400 12px Montserrat;
+            }
+          }
+        }
+      }
+    }
+
+    .table {
+      $padding: 0 35px;
+
+      width: 100%;
+      background-color: $table-background-color;
+
+      .table-header {
+        background-color: $table-background-color;
+        color: #3b4854;
+        font: 400 12px Montserrat;
+        height: 60px;
+
+        th {
+          text-align: right;
+          padding: $padding;
+          height: 10px;
+
+          &:first-child {
+            text-align: left;
+          }
+
+          &:not(:first-child) {
+            span {
+              display: block;
+              color: #3b4854;
+              font: 400 12px Montserrat;
+
+              &:last-child {
+                color: #c7c7c7;
+                font: 300 10px Montserrat;
+              }
+            }
+          }
+        }
+      }
+
+      td {
+        height: 40px;
+        text-align: right;
+        padding: $padding;
+        color: #2d3b48;
+        font: 300 11px Montserrat;
+
+        &:first-child {
+          text-align: left;
+        }
+
+        &:first-child {
+          width: 40%;
+          text-align: left;
+        }
+      }
+
+      tr {
+        border-bottom: 1px solid #f1f2f2;
+
+        &:last-child {
+          border-bottom: 0;
+        }
+
+        &.separator {
+          height: 30px;
+        }
+
+        &.title td {
+          background-color: #f7f7f7;
+          height: 45px;
+          font:400 12px Montserrat;
+          color: #00bfc3;
+          border-top: 2px solid #dee1e2;
+          border-bottom: 2px solid #dee1e2;
+
+          &:not(:first-child) {
+            color: #3b4854;
+            font: 400 13px Montserrat;
+          }
+        }
+        &.results td {
+          color: #3b4854;
+          font: 400 13px Montserrat;
+          padding-top: 10px;
+          vertical-align: top;
+        }
+      }
+
+    }
+  }
+}
+
+#dashboard .content.header .title {
+  font-size: 1.5em;
+  font-weight: 300;
+}
+
+#dashboard .content.header .title {
+    font-size: 1.5em;
+    font-weight: 300;
+}
+
+#dashboard .content.header {
+    padding-top: 20px;
+}
+#dashboard .content {
+    padding: 10px 20px;
+}
+
+@import 'variables/colors';
+@import 'variables/fonts';
+
+#dashboard {
+  background-color: inherit;
+
+  .balances {
+    &.sm {
+      overflow-x: auto;
+    }
+  }
+
+  .content {
+    padding: 10px 20px;
+
+    &.header {
+      padding-top: 20px;
+
+      .title {
+        font-size: $font-size-xl;
+        font-weight: 300;
+      }
+      .sub-title {
+        color: $color-primary;
+        border-bottom: dotted 1px;
+        font-size: $font-size-base;
+        cursor: pointer;
+      }
+    }
+
+    &.with-columns {
+      padding: 0 20px;
+
+      .left {
+        padding-right: 10px;
+
+        &>div {
+          padding-top: 10px;
+          padding-bottom: 10px;
+        }
+
+        &.sm {
+          padding: 10px 0;
+        }
+      }
+      .right {
+        padding-left: 10px;
+
+        &>div {
+          padding-top: 10px;
+          padding-bottom: 10px;
+        }
+
+        &.sm {
+          padding: 10px 0;
+        }
+      }
+    }
+  }
+}
+
+
+@import 'mixins/border_radius';
+@import 'variables/colors';
+@import 'variables/fonts';
+@import 'variables/radiuses';
+
+.widget-container {
+  @include border-radius($radius);
+  background-color: $color-white;
+  border: 1px solid $color-default-light;
+
+  &.with-padding {
+    padding: 10px;
+  }
+  .loading-box {
+    padding: 10px 0;
   }
 }

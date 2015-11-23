@@ -10,27 +10,27 @@
 
       <div class="links-container">
 
-        <div class="link active">
+        <div class="link" ng-class="{active: $state.is('dashboard')}">
           <span class="icon ion-ios-keypad"></span>
           <span class="title"><a href="#/dashboard" title="Dashboard">DASHBOARD</a></span>
         </div>
 
-        <div class="link">
+        <div class="link"ng-class="{active: $state.is('accounts')}">
           <span class="icon ion-card"></span>
           <span class="title"><a href="#/accounts" title="Cuentas">CUENTAS</a></span>
         </div>
 
-        <div class="link">
+        <div class="link" ng-class="{active: $state.is('transactions')}">
           <span class="icon ion-social-usd"></span>
           <span class="title"><a href="#/transactions" title="Transacciones">TRANSACCIONES</a></span>
         </div>
 
-        <div class="link">
+        <div class="link" ng-class="{active: $state.is('transfers')}">
           <span class="icon ion-arrow-swap"></span>
           <span class="title"><a href="#/transfers" title="Transferencias">TRANSFERENCIAS</a></span>
         </div>
 
-        <div class="link">
+        <div class="link" ng-class="{active: $state.is('planning')}">
           <span class="icon ion-android-checkbox-outline"></span>
           <span class="title"><a href="#/planning" title="Planificación">PLANIFICACIÓN</a></span>
         </div>
@@ -39,7 +39,7 @@
 
       <div class="side-container">
         <div class="controls">
-          <a href="#">Juan Miguel</a> | <a href="#/logout">Cerrar Sesión</a>
+          <a href="#/user" ng-class="{'name-active': $state.is('user')}">Juan Miguel</a> | <a href="#/logout">Cerrar Sesión</a>
         </div>
       </div>
     </nav>

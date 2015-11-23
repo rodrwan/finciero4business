@@ -1,0 +1,14 @@
+@import 'variables/colors';
+
+.chart-filter-select-date {
+  select {
+    background-color: $color-white;
+    height: 35px;
+    width: 200px;
+    border: solid 1px $color-default-light;
+  }
+
+  select:focus {
+    border: solid 1px $color-default-dark;
+  }
+}

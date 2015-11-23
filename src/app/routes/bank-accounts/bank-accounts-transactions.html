@@ -1,0 +1,15 @@
+<div layout="row" layout-align="center center">
+  <div class="description">
+    Saldo Actual > {{bankAccount.bank.name}} > {{bankAccount.title}}
+  </div>
+  <div class="principal-amount">
+    <span class="label label-xl" ng-class="{success: bankAccount.getBalance() >= 0, danger: bankAccount.getBalance() < 0}">
+      $ {{bankAccount.getBalance() | roundNumber | number | commaToDot}}
+    </span>
+  </div>
+</div>
+<div class="transactions-list" layout="row" layout-column="center center">
+  <div flex>
+    <fin-transactions-table transactions="transactions"></fin-transactions-table>
+  </div>
+</div>

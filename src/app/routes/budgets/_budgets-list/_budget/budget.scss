@@ -1,0 +1,41 @@
+@import 'variables/colors';
+@import 'variables/fonts';
+
+.budget {
+  padding: 10px 20px;
+  color: $color-font-default;
+  font-size: $font-size;
+  font-weight: 400;
+
+  progress {
+    border: 0 none;
+  }
+
+  progress[value]::-moz-progress-bar {
+    background-color: $color-default-light;
+  }
+
+  progress[value]::-webkit-progress-bar {
+    background-color: $color-default-light;
+  }
+
+  progress[value]::-moz-progress-value {
+    background-color: $color-primary;
+  }
+
+  progress[value]::-webkit-progress-value {
+    background-color: $color-primary;
+  }
+
+  .total {
+    padding: 0 15px;
+  }
+
+  .options {
+    cursor: pointer;
+    i {
+      color: $color-default-dark;
+      padding: 0 5px;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+@import 'bourbon';
+@import 'variables/colors';
+@import 'variables/radiuses';
+
+#user-notifications {
+  padding: 30px 0;
+  background-color: $color-white;
+  @include border-bottom-radius($radius - 1px);
+
+  .title {
+    padding: 0px 20px;
+    margin-bottom: 20px;
+  }
+
+  .notifications {
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+
+      li {
+        padding: 0 20px;
+        border-bottom: $color-default 1px solid;
+
+        md-checkbox {
+          &.md-default-theme.md-checked .md-icon {
+            background-color: $color-primary !important;
+          }
+        }
+      }
+
+      li:first-child {
+        border-top: $color-default 1px solid;
+      }
+    }
+  }
+}

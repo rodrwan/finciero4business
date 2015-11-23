@@ -1,0 +1,16 @@
+@import 'variables/colors';
+
+#pagination {
+  .button {
+    padding: 0 30px;
+
+    .md-fab {
+      background-color: $color-primary !important;
+      color: $color-white;
+
+      &:hover, &:focus, &:disabled {
+        background-color: $color-default-dark !important;
+      }
+    }
+  }
+}

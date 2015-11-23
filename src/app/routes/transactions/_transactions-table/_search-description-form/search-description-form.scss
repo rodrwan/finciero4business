@@ -1,0 +1,22 @@
+@import 'variables/colors';
+
+.search-description-form {
+  md-input-container {
+    padding: 0;
+
+    input {
+      font-weight: 400; 
+      width: 100%
+    }
+
+    i {
+      padding-top: 10px; 
+      padding-right: 10px; 
+      cursor: pointer;
+    }
+  }
+
+  md-input-container:not(.md-input-invalid).md-input-focused .md-input {
+    border-color: $color-primary;
+  }
+}

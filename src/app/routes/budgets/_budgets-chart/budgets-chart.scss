@@ -1,0 +1,17 @@
+@import 'variables/colors';
+@import 'variables/fonts';
+
+.budgets-chart {
+  .hs-tooltip {
+    padding: 5px;
+
+    .percentage {
+      padding-top: 3px;
+      font-size: $font-size-xl;
+    }
+    .amount {
+      padding: 3px 0;
+      color: $color-primary;
+    }
+  }
+}

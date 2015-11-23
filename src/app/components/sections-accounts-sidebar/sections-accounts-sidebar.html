@@ -1,0 +1,96 @@
+<div class="sections-accounts-sidebar">
+  <div class="sections">
+    <div class="title">
+        Secciones
+    </div>
+    <ul>
+      <li class="section" ng-class="::{active: $state.includes('dashboard')}" ui-sref="dashboard">
+        <md-icon class="icon" md-svg-icon="dashboard" alt="Dashboard Icon"></md-icon>
+         Mi panel
+      </li>
+      <li class="section" ng-class="::{active: $state.includes('transactions')}" ui-sref="transactions">
+        <md-icon class="icon fix" md-svg-icon="transactions" alt="Transactions Icon"></md-icon>
+        Transacciones
+      </li>
+      <li class="section" ng-class="::{active: $state.includes('analysis')}" ui-sref="analysis.expenses">
+        <md-icon class="icon" md-svg-icon="analysis" alt="Analysis Icon"></md-icon>
+        Análisis
+      </li>
+      <li class="section" ng-class="::{active: $state.includes('budgets')}" ui-sref="budgets">
+        <md-icon class="icon" md-svg-icon="budgets" alt="Budgets Icon"></md-icon>
+        Presupuestos
+      </li>
+      <li class="section" ng-class="::{active: $state.includes('recommendations')}" ui-sref="recommendations">
+        <md-icon class="icon" md-svg-icon="recomendations" alt="Recomendations Icon"></md-icon>
+        Recomendaciones
+      </li>
+      <li class="section" ng-class="::{active: $state.includes('employer')}" ui-sref="employer.debts">
+        <md-icon class="icon" md-svg-icon="employer" alt="Employers Icon"></md-icon>
+        Mis estadisticas
+      </li>
+    </ul>
+  </div>
+  <div class="banks">
+    <div class="title">
+      Mis cuentas
+    </div>
+    <div class="scroll">
+      <ul>
+        <li sly-show="!isLoadingBankAccounts" sly-repeat="bankAccount in bankAccounts" ng-click="toggleActiveBankAccount(bankAccount)">
+          <div class="bankAccount" ng-class="{active: bankAccount.active}" layout="row" layout-align="space-between center">
+            <span ui-sref="bank-accounts.transactions({id: bankAccount.id})">
+              {{bankAccount.title}}
+            </span>
+            <span>
+            <!-- TODO: add tooltip feature -->
+              <i sly-show="bankAccount.status === 'unauthorized'" class="fa fa-close fa-lg"></i>
+              <i sly-show="bankAccount.status === 'multipass'" class="fa fa-close fa-lg"></i>
+              <i sly-show="bankAccount.status === 'blocked'" class="fa fa-close fa-lg"></i>
+              <i sly-show="bankAccount.status === 'fail'" class="fa fa-exclamation fa-lg"></i>
+              <i sly-show="bankAccount.status === 'success'" class="fa fa-chevron-down fa-lg"></i>
+              <div class="loading-bank-account">
+                <md-progress-circular
+                  sly-show="bankAccount.status === 'pristine' || bankAccount.status === 'got_sub_accounts' || bankAccount.status === 'authorized'"
+                  md-diameter="15"
+                  class="loading sidebar"
+                  md-mode="indeterminate">
+                </md-progress-circular>
+              </div>
+            </span>
+          </div>
+          <div class="subAccount" sly-show="bankAccount.active" sly-repeat="subAccount in bankAccount.subAccountsList" layout="row" layout-align="center" ui-sref="sub-accounts.transactions({id: subAccount.id})">
+            {{subAccount.name}}
+            {{internationalCurrrency(subAccount.currency)}}
+            <span class="v-uid">
+              *{{subAccount.vanity_id}}
+            </span>
+            <span flex></span>
+            <span class="label" ng-class="{success: !balanceColor(subAccount), danger: balanceColor(subAccount)}">
+              ${{subAccount.balance | roundNumber | number | commaToDot}}
+            </span>
+          </div>
+        </li>
+        <li sly-show="isLoadingBankAccounts">
+          <div layout="row" layout-align="center center" class="loading-bank-account-box">
+            <md-progress-circular md-diameter="15" class="loading sidebar" md-mode="indeterminate"></md-progress-circular>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="options" layout="row" layout-align="space-around center">
+    <md-button ng-click="showAddBankAccountDialog($event)">
+      <md-icon class="icon" md-svg-icon="add" alt="Add Icon"></md-icon>
+      <span>Agregar</span> <span>cuenta</span>
+    </md-button>
+    <md-button ng-click="updateAccounts()" flex>
+      <span layout="row" layout-align="center center">
+        <md-icon sly-show="!isLoadingScraping" class="icon" md-svg-icon="refresh" alt="Refresh Icon"></md-icon>
+        <md-progress-circular sly-show="::isLoadingScraping" md-diameter="20" class="loading white" md-mode="indeterminate"></md-progress-circular>
+        <span>
+          Actualizar
+        </span>
+      </span>
+    </md-button>
+  </div>
+</div>

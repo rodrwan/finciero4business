@@ -1,0 +1,35 @@
+<!-- navbar -->
+<fb-menu style="width: 100%;"></fb-menu>
+
+<div class="accounts-container">
+  <div layout="column">
+    <div layout="row" layout-align="space-between center" class="content header">
+      <div class="title">Cuentas de Banco</div>
+      <div class="sub-title">
+        <md-button class="btn btn-primary" ng-click="showAddDialog($event)">
+          Agregar Cuenta
+        </md-button>
+      </div>
+    </div>
+    <div class="content row">
+      <ul>
+        <li>
+          <div layout="row" layout-align="start center">
+            <div flex="35" flex-sm="30">
+              Cuentas Bancarias
+            </div>
+            <div flex="35" flex-sm="30">
+              Nombre Personalizado
+            </div>
+            <div flex="20" flex-sm="40">
+              Saldo
+            </div>
+          </div>
+        </li>
+        <li ng-repeat="bankAccount in bankAccounts">
+          <fin-bank-account bank-account="bankAccount"></fin-bank-account>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

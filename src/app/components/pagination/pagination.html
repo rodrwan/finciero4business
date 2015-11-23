@@ -1,0 +1,16 @@
+<div id="pagination" layout="row" layout-align="center center">
+  <div class="button">
+    <md-button class="md-fab previous-button" aria-label="previous transactions" ng-click="previousPage()" ng-disabled="isFirstPage()">
+       <span layout="row" layout-align="center center">
+        <i class="fa fa-2x fa-caret-left"></i>
+      </span>
+    </md-button>
+  </div>
+  <div class="button">
+    <md-button class="md-fab next-button" aria-label="next transactions" ng-click="nextPage()" ng-disabled="isLastPage()">
+      <span layout="row" layout-align="center center">
+        <i class="fa fa-2x fa-caret-right"></i>
+      </span>
+    </md-button>
+  </div>
+</div>

@@ -17,11 +17,15 @@
     'finciero.business.rte.login',
     'finciero.business.rte.logout',
     'finciero.business.rte.dashboard',
+    'finciero.business.rte.accounts',
+    'finciero.business.rte.transactions',
+    'finciero.business.rte.planning',
+    'finciero.business.rte.user',
     'finciero.business.rte.firstRun',
     'finciero.business.rte.register',
     'finciero.business.drv.fbMenu',
-    'finciero.business.flt.commaToDot',
-    'finciero.business.flt.roundNumber',
+    'finciero.flt.commaToDot',
+    'finciero.flt.roundNumber',
   ])
 
   .config(function MLConfig (CATEGORY_API_URL, $stateProvider, $urlRouterProvider, CacheFactoryProvider, RestangularProvider) {

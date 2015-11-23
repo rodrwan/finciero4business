@@ -1,0 +1,34 @@
+@import 'mixins/border_radius';
+@import 'variables/colors';
+@import 'variables/radiuses';
+@import 'variables/fonts';
+
+.label {
+  padding: .2em .6em .3em;
+  color: $color-white;
+  @include border-radius($radius-sm);
+
+  &.success {
+    background-color: $color-success;
+  }
+
+  &.danger {
+    background-color: $color-danger;
+  }
+
+  &.primary {
+    background-color: $color-primary;
+  }
+
+  &.label-round {
+    padding: .05em .4em .1em;
+    font-size: $font-size-base;
+    @include border-radius(50%);
+  }
+
+  &.label-xl {
+    font-size: $font-size;
+    padding: .25em .8em .35em;
+  }
+
+}

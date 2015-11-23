@@ -1,6 +1,9 @@
 (function () {
   'use strict';
 
-  angular.module('finciero.business.svc.bankAccount', []);
+  angular.module('finciero.svc.bankAccount', [
+    'ngLodash',
+    'restangular'
+  ]);
 
-})();
+}());

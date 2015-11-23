@@ -1,0 +1,18 @@
+<!-- navbar -->
+<fb-menu style="width: 100%;"></fb-menu>
+
+<div class="planning-container row">
+  <div class="content">
+    <h2>Planificación / Balances</h2>
+    <div class="table-container">
+      <div class="tabs">
+        <ul>
+          <li ng-class="{active: $state.is('planning.budgets')}"><a href="#/planning/budgets">Presupuesto</a></li>
+          <li ng-class="{active: $state.is('planning.balances')}"><a href="#/planning/balances">Balances</a></li>
+          <li ng-class="{active: $state.is('planning.flow')}"><a href="#/planning/flow">Flujo de Dinero</a></li>
+        </ul>
+      </div>
+    </div>
+    <ui-view></ui-view>
+  </div>
+</div>

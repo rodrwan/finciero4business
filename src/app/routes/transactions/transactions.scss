@@ -1,0 +1,24 @@
+@import 'variables/colors';
+@import 'variables/radiuses';
+@import 'variables/fonts';
+@import 'mixins/border_radius';
+
+#transactions {
+  .content {
+    .description {
+      padding: 0 10px;
+      font-weight: 500;
+      font-size: $font-size
+    }
+
+    .principal-amount {
+      margin: 15px 10px;
+    }
+
+    .transactions-list {
+      background-color: $color-white;
+      border: 1px solid $color-default-light;
+      @include border-radius($radius);
+    }
+  }
+}

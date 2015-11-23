@@ -6,7 +6,7 @@
     'angular-storage',
     'finciero.business.drv.fbMenu',
     'finciero.business.dashboard.drv.fbMoneyIndicator',
-    'finciero.business.dashboard.drv.tableContainer',
+    'finciero.cmp.widgetTableContainer',
     'finciero.business.drv.accountsSidebar'
   ])
 

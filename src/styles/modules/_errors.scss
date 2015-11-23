@@ -1,0 +1,36 @@
+@import 'variables/colors';
+
+$color-warning-box: #E8C85F;
+$color-error-box: #e18585;
+
+.alert-box {
+  margin: 30px;
+
+  .column-container {
+    padding: 25px;
+
+    .warning {
+      color: $color-warning-box;
+    }
+    .error {
+      color: $color-error-box;
+    }
+    .message {
+      padding-top: 5px;
+      color: $color-font-default;
+
+      span {
+        font-weight: 600;
+      }
+    }
+    .options {
+      padding-top: 20px;
+
+      a {
+        color: $color-primary;
+        border-bottom: dotted 1px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

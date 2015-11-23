@@ -1,0 +1,42 @@
+<md-dialog id="bank-account-dialog" class="modal" aria-label="new-bank-account">
+  <md-content>
+    <div layout="column" class="columns">
+      <div layout="row" layout-align="center center">
+        <span class="title">
+          Agregar cuenta bancaria
+        </span>
+      </div>
+      <div layout="row">
+        <div flex>
+          <fin-new-bank-account></fin-new-bank-account>
+        </div>
+        <div flex>
+          <div>
+            <span layout="row" layout-align="start center">
+              <span>
+                <md-icon md-svg-icon="shield" class="icon" alt="Shield Icon"></md-icon>
+              </span>
+              <span class="sub-title">
+                Seguridad Finciero
+              </span>
+            </span>
+            <ul class="list">
+              <li>
+                <span class="company">Finciero</span> solo lee tu información. Nosotros no podemos hacer movimientos de dinero, ni siquiera tu.
+              </li>
+              <li>
+                <span class="company">Finciero</span> te avisa en caso de cualquier movimiento sospechoso en tus cuentas bancarias.
+              </li>
+              <li>
+                <span class="company">Finciero</span> cumple con todos los estándares de seguridad de los bancos online.
+              </li>
+              <li>
+                <span class="company">Finciero</span> no guardará tu contraseña, ni entregará nunca tus datos a terceros.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </md-content>
+</md-dialog>

@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('finciero.business.svc.bankAccount')
+  angular.module('finciero.svc.bankAccount')
     .factory('BankAccount', function ($q) {
       var $deferred = $q.defer();
       var fakeData = {

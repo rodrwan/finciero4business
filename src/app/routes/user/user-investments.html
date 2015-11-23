@@ -1,0 +1,75 @@
+<div id="user-investments">
+  <div class="investments" ng-hide="investments.length === 0">
+    <div class="active-investments">
+      <div class="title">Inversiones Activas</div>
+      <ul>
+        <li>
+          <div layout="row" layout-align="start center">
+            <div flex="20">
+              Nombre
+            </div>
+            <div flex="20">
+              Fecha de inicio
+            </div>
+            <div flex="20">
+              Monto invertido
+            </div>
+            <div flex="20">
+              Tasa de interés
+            </div>
+            <div flex="10">
+              Duración
+            </div>
+            <div flex="10" hide-sm>
+              Acción
+            </div>
+          </div>
+        </li>
+        <li ng-repeat="investment in (investments | filter:{liquidated: false}) track by $index">
+          <fin-investment investment="investment"></fin-investment>
+        </li>
+      </ul>
+    </div>
+    <div class="liquidated-investments" ng-hide="(investments | filter:{liquidated: true}).length === 0">
+      <div class="title">Inversiones Liquidadas</div>
+      <ul>
+        <li>
+          <div layout="row" layout-align="start center">
+            <div flex="20">
+              Nombre
+            </div>
+            <div flex="20">
+              Fecha de inicio
+            </div>
+            <div flex="20">
+              Monto invertido
+            </div>
+            <div flex="20">
+              Tasa de interés
+            </div>
+            <div flex="10">
+              Duración
+            </div>
+            <div flex="10" hide-sm>
+              Acción
+            </div>
+          </div>
+        </li>
+        <li ng-repeat="investment in liquidatedInvestments = (investments | filter:{liquidated: true}) track by $index">
+          <fin-investment investment="investment"></fin-investment>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="no-investments" ng-show="investments.length === 0" layout="column" layout-align="center center" flex>
+    <span class="title">Que esperas para añadir tu inversión!</span>
+    <span>Con Finciero podrás conocer la evolución de tus inversiones de la forma más simple y amigable.</span>
+    <span>Si tienes alguna inversión, <span class="bold">agrégala</span>.</span>
+  </div>
+  <div class="options" layout="row" layout-align="center center">
+    <md-button class="btn btn-primary" ng-click="showAddDialog($event)">
+      Agregar Inversión
+    </md-button>
+  </div>
+
+</div>

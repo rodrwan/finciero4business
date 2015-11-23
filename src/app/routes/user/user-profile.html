@@ -1,0 +1,66 @@
+<!-- <div id="user-profile" layout="column">
+  <h4>Actualizar datos de la cuenta</h4>
+  <div layout="row" layout-align="space-around center" class="forms">
+    <div>
+      <div class="header" layout="row" layout-align="space-between center">
+        Email
+        <i class="fa fa-envelope"></i>
+      </div>
+      <fin-change-email-form></fin-change-email-form>
+    </div>
+    <hr class="vertical">
+    <div>
+      <div class="header" layout="row" layout-align="space-between center">
+        Contraseña
+        <i class="fa fa-lock"></i>
+      </div>
+      <fin-change-password-form></fin-change-password-form>
+    </div>
+  </div>
+</div>
+ -->
+ <div id="user-profile" layout="column">
+   <div class="title">
+     Actualizar datos de la cuenta
+   </div>
+   <div layout="row" layout-sm="column" class="forms">
+     <div flex>
+       <div layout="row" layout-align="center center">
+         <div flex="65">
+           <div layout="column" class="profile-form">
+             <div layout="row" layout-align="space-between center">
+               <div class="form-title">
+                 Email
+               </div>
+               <div>
+                 <i class="fa fa-envelope fa-2x"></i>
+               </div>
+             </div>
+             <div class="form-container">
+               <fin-change-email-form></fin-change-email-form>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+     <div ng-class="{sm: $mdMedia('sm')}" flex>
+        <div layout="row" layout-align="center center">
+         <div flex="65">
+           <div layout="column" class="profile-form">
+             <div layout="row" layout-align="space-between center">
+               <div class="form-title">
+                 Contraseña
+               </div>
+               <div>
+                 <i class="fa fa-lock fa-2x"></i>
+               </div>
+             </div>
+             <div class="form-container">
+               <fin-change-password-form></fin-change-password-form>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>

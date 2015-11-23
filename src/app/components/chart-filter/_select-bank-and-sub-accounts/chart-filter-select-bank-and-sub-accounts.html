@@ -1,0 +1,38 @@
+<div class="chart-filter-select-bank-and-sub-accounts " >
+  <div fin-dropdown fin-dropdown-class="dropdown">
+    <div class="dropdown-menu">
+      <div class="select" layout="row" layout-align="center center">
+        <div layout="row" layout-align="center center" flex>
+          ({{getTotalActives()}}) Cuentas Agregadas
+        </div>
+        <div class="icon">
+          <div layout="row" layout-align="center center">
+            <i class="fa fa-lg fa-caret-down"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="dropdown-content md-whiteframe-z3">
+      <div layout="column">
+        <div class="options">
+          <div sly-repeat="bankAccount in ::bankAccountList">
+            <div class="bank-name" ng-click="bankAccountSelection(bankAccount)">
+              {{bankAccount.title}}
+            </div>
+            <div class="sub-accounts">
+              <div sly-repeat="subAccount in ::bankAccount.subAccounts">
+                <md-checkbox ng-model="subAccount.selected" aria-label="sub account select checkbox" class="md-primary">
+                  {{subAccount.name}}
+                </md-checkbox>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer" layout="row" layout-align="space-between center">
+          <div class="all" ng-click="toggleSelection()">Todas las cuentas</div>
+          <md-button class="button" ng-click="send()" ng-disabled="getTotalActives() === 0">Filtrar</md-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

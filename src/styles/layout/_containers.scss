@@ -1,0 +1,40 @@
+@import 'variables/fonts';
+@import 'variables/colors';
+
+.box {
+  padding: 20px;
+  background-color: inherit;
+
+  &.md-default-theme {
+    background-color: inherit;
+  }
+
+  .header {
+    padding-bottom: 20px;
+
+    .title {
+      font-size: $font-size-xxl;
+      color: $color-default-dark;
+      font-weight: 300;
+    }
+
+    .md-fab {
+      height: 30px;
+      width: 36px;
+      background-color: $color-primary;
+
+      &.md-fab:hover, &.md-fab:focus {
+        background-color: $color-default-dark !important;
+      }
+    }
+
+    .filters {
+      .filter-title {
+        font-weight: 500;
+        padding-bottom: 5px;
+      }
+    }
+  }
+
+  .content {}
+}

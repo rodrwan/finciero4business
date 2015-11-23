@@ -1,0 +1,17 @@
+div, article, nav, button, a {
+  &.depth-0 {
+    @include box-shadow(none);
+  }
+  &.depth-1 {
+    @include box-shadow(0 0 1px 0px rgba(0, 0, 0, .25));
+  }
+  &.depth-2 {
+    @include box-shadow(0 1px 1px 0px rgba(0, 0, 0, .25));
+  }
+  &.depth-3 {
+    @include box-shadow(0 2px 2px 1px rgba(0, 0, 0, .25));
+  }
+  &.depth-4 {
+    @include box-shadow(0 5px 3px 1px rgba(0, 0, 0, .25));
+  }
+}

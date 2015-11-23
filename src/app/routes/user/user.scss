@@ -1,0 +1,10 @@
+@import 'mixins/border_radius';
+@import 'variables/colors';
+@import 'variables/radiuses';
+
+#user-settings {
+  .content {
+    border: $color-default-light solid 1px;
+    @include border-radius($radius);
+  }
+}

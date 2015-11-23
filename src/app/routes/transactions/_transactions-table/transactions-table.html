@@ -1,0 +1,153 @@
+<div id="table-transactions">
+  <div
+    class="no-transactions"
+    sly-show="transactionsIsEmpty()"
+    layout="row"
+    layout-align="center center">
+    <p>
+      No se encontraron transacciones
+    </p>
+  </div>
+  <div
+    class="transactions"
+    sly-show="!transactionsIsEmpty()">
+    <ul>
+        <li>
+          <div
+            layout="row"
+            layout-align="start center">
+            <div flex="10">
+              Fecha
+              <fin-sort-options
+                ng-if="showSort"
+                column="sortOptions.date.column"
+                name="sortOptions.date.name">
+              </fin-sort-options>
+            </div>
+            <div flex="15">
+              Cuenta bancaria
+            </div>
+            <div
+              flex="30"
+              layout="row"
+              layout-align="center center">
+              <div ng-hide="showSearch">
+                Descripción
+                <fin-sort-options
+                  ng-if="showSort"
+                  column="sortOptions.description.column"
+                  name="sortOptions.description.name">
+                </fin-sort-options>
+                <span
+                  class="search-icon"
+                  ng-show="searchByDescription"
+                  ng-click="showSearch = !showSearch">
+                  <i class="fa fa-search fa-lg">
+                    <md-tooltip
+                      md-direction="top"
+                      md-delay="0">
+                      Buscar según descripción de alguna transacción bancaria
+                    </md-tooltip>
+                  </i>
+                </span>
+              </div>
+              <div
+                ng-show="showSearch"
+                class="description-search"
+                flex>
+                <fin-search-description-form show-search="showSearch"></fin-search-description-form>
+              </div>
+            </div>
+            <div flex="15">
+              Movimiento
+              <fin-sort-options
+                ng-if="showSort"
+                column="sortOptions.movement.column"
+                name="sortOptions.movement.name">
+              </fin-sort-options>
+            </div>
+            <div
+              flex="20"
+              class="lateral-space">
+              Categoría
+            </div>
+            <div flex="10" hide-sm>
+              Acción
+            </div>
+          </div>
+        </li>
+        <li
+          sly-repeat="transaction in transactions"
+          ng-class="{ignored: transaction.ignored}">
+          <div
+            layout="row"
+            layout-align="start center">
+            <div
+              class="date"
+              flex="10">
+              {{parseDate(transaction)}}
+            </div>
+            <div
+              flex="15"
+              class="lateral-space">
+              {{transaction.sub_account.name}}
+              {{internationalCurrency(transaction.sub_account.currency)}}
+            </div>
+            <div
+              flex="30"
+              class="lateral-space">
+              {{transaction.description}} {{transaction.extended_description}}
+            </div>
+            <div
+              class="amount"
+              ng-class="{
+                positive: transaction.movement >= 0 && !transaction.ignored,
+                negative: transaction.movement < 0 && !transaction.ignored
+              }"
+              flex="15"
+              class="lateral-space">
+              $ {{transaction.movement | number: 0 | commaToDot}}
+            </div>
+            <div
+              class="lateral-space"
+              flex="20">
+              {{ transaction.subCategory }}
+            </div>
+            <div
+              class="options"
+              fin-dropdown
+              flex="10"
+              hide-sm>
+              <div class="dropdown-menu">
+                <i class="fa fa-lg fa-chevron-down"></i>
+              </div>
+              <div class="dropdown-content md-whiteframe-z3">
+                <ul>
+                  <li>
+                    <fin-ignore-transaction-button transaction="transaction"></fin-ignore-transaction-button>
+                  </li>
+                  <li>
+                    <a
+                      sly-show="transaction.user_created"
+                      ng-click="showEditTransactionDialog(transaction, $event)">
+                      Editar
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      sly-show="transaction.user_created"
+                      ng-click="removeTransaction(transaction, $event)">
+                      Borrar
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+  </div>
+  <div ng-if="showPagination" sly-show="!transactionsIsEmpty()" class="pagination">
+    <fin-pagination meta-options="transactions.meta.pagination"> </fin-pagination>
+  </div>
+</div>

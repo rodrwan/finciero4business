@@ -1,0 +1,10 @@
+@import 'variables/colors';
+
+$uncategorized-color: #FAFCBB;
+
+.chosen-container-single .chosen-single {
+  &.uncategorized {
+    background: $uncategorized-color !important;
+    background-color: $uncategorized-color !important;
+  }
+}

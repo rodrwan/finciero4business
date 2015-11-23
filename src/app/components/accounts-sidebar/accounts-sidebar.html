@@ -1,0 +1,56 @@
+<div class="accounts-sidebar">
+  <div class="statement">
+    Efectivo
+    <span class="pull-right">
+      {{bankAccounts.getTotalAssets()}}
+    </span>
+    <div class="bank-account" ng-repeat="bankAccount in bankAccounts">
+      <a ui-sref="bank-accounts.transactions({id: bankAccount.id})">
+        {{bankAccount.title}}
+        <span class="pull-right">
+          {{bankAccount.getAssetsValue()}}
+        </span>
+      </a>
+      <ul>
+        <li ng-repeat="subAccount in bankAccount.getAssetsSubAccounts()">
+          <a ui-sref="sub-accounts.transactions({id: subAccount.id})">
+            <span>
+              {{subAccount.name}}
+              [{{subAccount.currency}}]
+            </span>
+            <span class="pull-right">
+              {{subAccount.balance}}
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="statement">
+    Deuda
+    <span class="pull-right">
+      {{bankAccounts.getTotalLiabilities()}}
+    </span>
+    <div class="bank-account" ng-repeat="bankAccount in bankAccounts">
+      <a ui-sref="bank-accounts.transactions({id: bankAccount.id})">
+        {{bankAccount.title}}
+        <span class="pull-right">
+          {{bankAccount.getLiabilitiesValue()}}
+        </span>
+      </a>
+      <ul>
+        <li ng-repeat="subAccount in bankAccount.getLiabilitiesSubAccounts()">
+          <a ui-sref="sub-accounts.transactions({id: subAccount.id})">
+            <span>
+              {{subAccount.name}}
+              {{internationalCurrrency(subAccount.currency)}}
+            </span>
+            <span class="pull-right">
+              {{subAccount.balance}}
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

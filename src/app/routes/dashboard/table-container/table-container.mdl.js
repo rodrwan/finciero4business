@@ -2,9 +2,9 @@
   'use strict';
 
   angular.module('finciero.business.dashboard.drv.tableContainer', [
-    'finciero.business.transactions.drv.transactionsTable',
-    'finciero.business.svc.transactions',
-    'finciero.business.svc.flashMessage'
+    'finciero.cmp.transactionsTable',
+    'finciero.svc.transactions',
+    'finciero.svc.flashMessage'
   ]);
 
 }());
