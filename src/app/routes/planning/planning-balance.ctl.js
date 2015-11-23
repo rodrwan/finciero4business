@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('finciero.business.rte.planning')
+  angular.module('finciero.rte.planning')
 
   .controller('PlanningBalancesCtrl', function HomeController ($scope) {
 

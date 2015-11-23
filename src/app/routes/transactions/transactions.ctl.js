@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-  	.module('finciero.business.rte.transactions')
+  	.module('finciero.rte.transactions')
     .controller('TransactionsCtrl', function ($scope, bankAccountResolve, transactionsResolve, $state, $stateParams) {
       function showIgnored () {
         var ignored = $scope.showAllIgnoredTransactions ? true : '';

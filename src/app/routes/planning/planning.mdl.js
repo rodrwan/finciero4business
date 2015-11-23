@@ -1,10 +1,12 @@
 (function () {
   'use strict';
 
-  angular.module('finciero.business.rte.planning', [
+  angular.module('finciero.rte.planning', [
     'ui.router',
     'angular-storage',
-    'finciero.business.drv.fbMenu',
+    'finciero.drv.fbMenu',
+    'finciero.rte.budgets',
+    'ngLodash'
   ])
 
   .config(function ($stateProvider) {
@@ -18,8 +20,8 @@
     })
     .state('planning.budgets', {
       url: '/budgets',
-      controller: 'PlanningBudgetsCtrl',
-      templateUrl: 'app/routes/planning/planning-budgets.html',
+      controller: 'BudgetsCtrl',
+      templateUrl: 'app/routes/budgets/budgets.html',
       data: {
         requiresLogin: true
       }

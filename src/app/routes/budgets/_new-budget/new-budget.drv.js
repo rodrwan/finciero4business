@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('finciero.cmp.newBudget')
-    .directive('finNewBudget', function (Category, Budget, lodash, $mdDialog, $rootScope, $log, FlashMessage, $cacheFactory) {
+    .directive('finNewBudget', function (Category, Budget, lodash, $mdDialog, $rootScope, $log, FlashMessage, CacheFactory) {
       return {
         restrict: 'E',
         templateUrl: 'app/routes/budgets/_new-budget/new-budget.html',
@@ -30,7 +30,7 @@
             return array;
           };
 
-          budgets = Budget.getList().$object;
+          budgets = Budget;
 
           $scope.categories = Category.getList().then(function (data) {
             $scope.elements = filters.existInUserBudgets(data.allElements());
@@ -48,7 +48,7 @@
               $rootScope.$emit('budget:create', data);
               $mdDialog.hide();
               FlashMessage.show('El presupuesto ha sido creado con éxito.', true);
-              $cacheFactory.get('$http').removeAll();
+              CacheFactory.get('BudgetFactory').removeAll();
             }, function (err) {
               FlashMessage.show('Lo sentimos, pero ha ocurrido un error.', false);
               $log.error('budget:create', '> when create a budget', err);

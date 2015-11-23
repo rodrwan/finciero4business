@@ -1,5 +1,4 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500|Montserrat|Lato);
-/*@import 'public/bower_components/normalize-css/normalize.css';*/
 
 $navbar-background-color: white;
 $sidemenu-text-padding: 0 12.5px;
@@ -285,7 +284,7 @@ div.content-container {
     width: 100%;
     & .balances {
       display: flex;
-      background-color: red;
+      background-color: #f2f1f5;
       flex-grow: 1;
       height: 168px;
 
@@ -356,7 +355,7 @@ div.login-container {
 }
 
 .login {
-  background-color: red; /* just for the demo */
+  background-color: #f2f1f5; /* just for the demo */
   display: inline-block;
   text-align: left;
   height: auto;
@@ -555,6 +554,7 @@ div.planning-container {
     width: 80%;
     min-width: 989px;
     display: flex;
+    margin-bottom: 20px;
 
     h2 {
       color: #a6a6a7;

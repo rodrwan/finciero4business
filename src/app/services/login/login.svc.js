@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('finciero.business.svc.login')
+  angular.module('finciero.svc.login')
   .factory('Login', function (Restangular) {
     return Restangular.service('login');
   })

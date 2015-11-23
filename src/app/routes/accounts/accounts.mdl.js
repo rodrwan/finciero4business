@@ -1,10 +1,10 @@
 (function () {
   'use strict';
 
-  angular.module('finciero.business.rte.accounts', [
+  angular.module('finciero.rte.accounts', [
     'ui.router',
     'angular-storage',
-    'finciero.business.drv.fbMenu',
+    'finciero.drv.fbMenu',
     'finciero.cmp.bankAccount'
   ])
 

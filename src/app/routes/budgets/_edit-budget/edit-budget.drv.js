@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('finciero.cmp.editBudget')
-    .directive('finEditBudget', function (Category, Budget, $rootScope, $mdDialog, lodash, $log, FlashMessage, $cacheFactory) {
+    .directive('finEditBudget', function (Category, Budget, $rootScope, $mdDialog, lodash, $log, FlashMessage, CacheFactory) {
       return {
         restrict: 'E',
         templateUrl: 'app/routes/budgets/_edit-budget/edit-budget.html',
@@ -30,7 +30,6 @@
           });
 
           $scope.sendForm = function () {
-            console.log(3333);
             var elementSelected, formatted;
 
             elementSelected = lodash.find($scope.elements, {id: $scope.elementSelectedId});
@@ -39,7 +38,7 @@
             $scope.updateBudget.patch({budget: formatted}).then(function () {
               $rootScope.$emit('budget:update', $scope.updateBudget);
               $mdDialog.hide();
-              $cacheFactory.get('$http').removeAll();
+              CacheFactory.get('BudgetFactory').removeAll();
               FlashMessage.show('El presupuesto ha sido editado con éxito.', true);
             }, function (err) {
               FlashMessage.show('Lo sentimos, pero ha ocurrido un error.', false);

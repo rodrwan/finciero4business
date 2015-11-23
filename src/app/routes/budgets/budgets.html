@@ -1,22 +1,8 @@
-<!-- navbar -->
-<div class="content-container">
-  <fb-menu style="width: 100%;"></fb-menu>
-</div>
-<div class="content-container">
-  <md-sidenav id="sidebar"
-              md-is-locked-open="$mdMedia('gt-md')"
-              class="md-whiteframe-z2"
-              md-component-id="left"
-              style="width: 246px; min-width: 246px !important;">
-    <fb-accounts-sidebar></fb-accounts-sidebar>
-  </md-sidenav>
-
-  <md-content id="budgets" flex>
+<md-content id="budgets" flex>
+  <div class="box">
     <div layout="column">
       <div layout="row" layout-align="center" class="header">
-        <span class="title">
-          Presupuestos
-        </span>
+        <span flex></span>
         <span flex></span>
         <md-button class="md-fab" aria-label="Add budget" ng-click="showAddBudgetDialog($event)">
           <span layout="row" layout-align="center center">
@@ -24,8 +10,10 @@
           </span>
         </md-button>
       </div>
+    </div>
+    <div layout="row">
       <div ng-hide="budgets.length === 0" layout="row" layout-md="column" layout-sm="column" class="content" flex>
-        <div flex="70" flex-md="100" flex-sm="100" class="budgets-list" ng-class="{row: $mdMedia('gt-md'), column: !$mdMedia('gt-md')}">
+        <div flex="70" flex-md="100" flex-sm="100" class="budgets-list row">
           <div class="list-header" layout="row">
             <span>Presupuesto por categorías</span>
             <span flex></span>
@@ -35,7 +23,7 @@
             <fin-budgets-list budgets="budgets" show-options="true"></fin-budgets-list>
           </div>
         </div>
-        <div class="budgets-chart" flex flex-md="100" flex-sm="100" ng-class="{row: $mdMedia('gt-md'), column: !$mdMedia('gt-md')}">
+        <div class="budgets-chart row" flex flex-md="100" flex-sm="100">
           <div class="chart-header">
             Presupuesto Mensual
           </div>
@@ -55,5 +43,5 @@
         </span>
       </div>
     </div>
-  </md-content>
-</div>
+  </div>
+</md-content>

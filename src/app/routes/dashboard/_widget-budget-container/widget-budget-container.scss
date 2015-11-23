@@ -1,0 +1,31 @@
+@import 'variables/colors';
+@import 'variables/fonts';
+
+.widget-container {
+  &.budgets {
+    .header {
+      font-size: $font-size;
+      padding: 15px 0;
+      border-bottom: $color-default-light 1px solid;
+
+      .title {
+        margin-left: 15px;
+        color: $color-default-dark;
+        font-weight: 500;
+      }
+      .sub-title {
+        margin-right: 15px;
+        color: $color-primary;
+        border-bottom: dotted 1px;
+        cursor: pointer;
+      }
+    }
+    .container {
+      padding: 0 10px;
+
+      p {
+        text-align: center;
+      }
+    }
+  }
+}

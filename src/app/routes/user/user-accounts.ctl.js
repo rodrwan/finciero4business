@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('finciero.business.rte.user')
+  angular.module('finciero.rte.user')
     .controller('UserAccountsCtrl', function ($scope, BankAccountsResolve, $mdDialog, $rootScope, lodash, $moment) {
       function showAddDialog (ev) {
         $mdDialog.show({

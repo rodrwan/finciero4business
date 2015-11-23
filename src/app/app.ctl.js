@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('finciero.business')
+  angular.module('finciero')
 
   .controller('AppCtrl', function AppController (MENU, $rootScope, $scope, store) {
     function filterMenu (menu, user) {

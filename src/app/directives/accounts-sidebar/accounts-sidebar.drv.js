@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('finciero.business.drv.accountsSidebar')
+  angular.module('finciero.drv.accountsSidebar')
     .directive('fbAccountsSidebar', function ($mdDialog, BankAccount, $state, $rootScope, lodash, Restangular) {
       return {
         templateUrl: 'app/directives/accounts-sidebar/accounts-sidebar.html',

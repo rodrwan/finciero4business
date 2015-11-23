@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('finciero.business.rte.logout', [
+  angular.module('finciero.rte.logout', [
     'ui.router',
     'angular-storage'
   ])

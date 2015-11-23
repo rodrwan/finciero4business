@@ -1,0 +1,15 @@
+<div class="widget-container budgets">
+  <div ng-hide="isLoading" class="loading-box" layout="row" layout-align="center center">
+    <md-progress-circular class="loading" md-mode="indeterminate" md-diameter="25"></md-progress-circular>
+  </div>
+  <div ng-if="isLoading">
+    <div layout="row" layout-align="space-between center" class="header">
+      <div class="title">Presupuestos (Este mes)</div>
+      <div class="sub-title" ng-click="showAddBudgetDialog($event)">Agregar Presupuesto</div>
+    </div>
+    <div class="container">
+      <p ng-show="budgets.length === 0">No tienes presupuestos para mostrar.</p>
+      <fin-budgets-list ng-hide="budgets.length === 0" budgets="budgets" show-options="false"></fin-budgets-list>
+    </div>
+  </div>
+</div>

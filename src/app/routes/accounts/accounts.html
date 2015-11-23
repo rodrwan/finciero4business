@@ -1,35 +1,104 @@
 <!-- navbar -->
 <fb-menu style="width: 100%;"></fb-menu>
 
-<div class="accounts-container">
-  <div layout="column">
-    <div layout="row" layout-align="space-between center" class="content header">
-      <div class="title">Cuentas de Banco</div>
-      <div class="sub-title">
-        <md-button class="btn btn-primary" ng-click="showAddDialog($event)">
-          Agregar Cuenta
-        </md-button>
+<div class="user-account-container row">
+    <div class="content">
+      <div class="header">
+        <h2>Cuentas bancarias</h2>
+        <div class="button-container">
+          <button>Agregar Cuenta</button>
+        </div>
       </div>
-    </div>
-    <div class="content row">
-      <ul>
-        <li>
-          <div layout="row" layout-align="start center">
-            <div flex="35" flex-sm="30">
-              Cuentas Bancarias
-            </div>
-            <div flex="35" flex-sm="30">
-              Nombre Personalizado
-            </div>
-            <div flex="20" flex-sm="40">
-              Saldo
-            </div>
-          </div>
-        </li>
-        <li ng-repeat="bankAccount in bankAccounts">
-          <fin-bank-account bank-account="bankAccount"></fin-bank-account>
-        </li>
-      </ul>
+
+      <div class="table-container">
+
+        <table class="table">
+
+          <tr class="header">
+            <th></th>
+            <th>Cuentas agregadas</th>
+            <th>Nombre personalizado</th>
+            <th>Saldo</th>
+          </tr>
+          <!--EACH BANK ACCOUNT-->
+          <tr class="title">
+            <td></td>
+            <td class="account-name">Banco de Chile / Edwards Citi</td>
+            <td class="account-custom-name">Cuenta Uso permanente</td>
+            <td class="account-balance positive"><span>$900.000</span></td>
+          </tr>
+
+          <tr class="sub-account">
+            <td></td>
+            <td colspan="2" class="account-name">Cuenta Corriente *3006</td>
+            <td class="account-balance positive">
+              <div>$120.000</div>
+            </td>
+          </tr>
+
+          <tr class="sub-account">
+            <td></td>
+            <td colspan="2" class="account-name">Cuenta Corriente *3006</td>
+            <td class="account-balance negative">
+              <div>$120.000</div>
+            </td>
+          </tr>
+
+          <tr class="sub-account last">
+            <td></td>
+            <td colspan="2" class="account-name">Cuenta Corriente *3006</td>
+            <td class="account-balance negative">
+              <div>$120.000</div>
+            </td>
+          </tr>
+
+          <tr class="separator"></tr>
+
+          <!-- *** end of bank account *** -->
+
+          <tr class="title">
+            <td></td>
+            <td class="account-name">Banco de Chile / Edwards Citi</td>
+            <td class="account-custom-name">Cuenta Uso permanente</td>
+            <td class="account-balance positive"><span>$900.000</span></td>
+          </tr>
+
+          <tr class="sub-account">
+            <td></td>
+            <td colspan="2" class="account-name">Cuenta Corriente *3006</td>
+            <td class="account-balance positive">
+              <div>$120.000</div>
+            </td>
+          </tr>
+
+          <tr class="sub-account">
+            <td></td>
+            <td colspan="2" class="account-name">Cuenta Corriente *3006</td>
+            <td class="account-balance negative">
+              <div>$120.000</div>
+            </td>
+          </tr>
+
+          <tr class="sub-account last">
+            <td></td>
+            <td colspan="2" class="account-name">Cuenta Corriente *3006</td>
+            <td class="account-balance negative">
+              <div>$120.000</div>
+            </td>
+          </tr>
+
+          <tr class="sub-account last">
+            <td></td>
+            <td colspan="2" class="account-name">Cuenta Corriente *3006</td>
+            <td class="account-balance negative">
+              <div>$120.000</div>
+            </td>
+          </tr>
+
+        </table>
+
+      </div>
+
     </div>
   </div>
 </div>

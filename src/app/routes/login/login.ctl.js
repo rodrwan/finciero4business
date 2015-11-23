@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('finciero.business.rte.login')
+  angular.module('finciero.rte.login')
 
   .controller('LoginCtrl', function HomeController ($scope) {
     $scope.isLogin = true;

@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('finciero.business.rte.user')
+  angular.module('finciero.rte.user')
     .controller('UserNotificationsCtrl', function ($scope, Session, lodash) {
       var session, count, notifications;
 

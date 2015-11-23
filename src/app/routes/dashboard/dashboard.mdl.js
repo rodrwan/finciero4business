@@ -1,13 +1,13 @@
 (function () {
   'use strict';
 
-  angular.module('finciero.business.rte.dashboard', [
+  angular.module('finciero.rte.dashboard', [
     'ui.router',
     'angular-storage',
-    'finciero.business.drv.fbMenu',
-    'finciero.business.dashboard.drv.fbMoneyIndicator',
+    'finciero.drv.fbMenu',
+    'finciero.dashboard.drv.fbMoneyIndicator',
     'finciero.cmp.widgetTableContainer',
-    'finciero.business.drv.accountsSidebar'
+    'finciero.drv.accountsSidebar'
   ])
 
   .config(function ($stateProvider) {

@@ -5,6 +5,16 @@
 @import 'mixins/border_radius';
 
 #budgets {
+  background-color:white;
+
+  .box {
+    padding: 0px !important;
+  }
+  .content {
+      flex-direction: row !important;
+      margin-bottom: 0px !important;
+  }
+
   .budgets-list {
     border: $color-default-light solid 1px;
     background-color: $color-white;

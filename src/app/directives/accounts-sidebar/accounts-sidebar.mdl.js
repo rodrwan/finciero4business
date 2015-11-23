@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('finciero.business.drv.accountsSidebar', [
+  angular.module('finciero.drv.accountsSidebar', [
     // 'finciero.cmp.bankAccountStatus',
     // 'finciero.cmp.newBankAccount',
     'finciero.svc.bankAccount',

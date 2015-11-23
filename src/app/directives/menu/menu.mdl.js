@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('finciero.business.drv.fbMenu', [
+  angular.module('finciero.drv.fbMenu', [
     'ui.router']);
 
 }());

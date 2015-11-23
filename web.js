@@ -102,7 +102,7 @@ function requireLogin (req, res, next) {
 app.use('/', routes);
 app.use('/api/login', login);
 app.use('/api/transactions', transactions);
-app.use('/api/categories', requireLogin, categories);
+app.use('/api/categories', categories);
 app.use('/api/logout', requireLogin, logout);
 app.use('/api/status', requireLogin, status);
 app.use('/api/c-constraints', requireLogin, cConstraints);

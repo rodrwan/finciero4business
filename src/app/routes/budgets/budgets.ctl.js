@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('finciero.rte.budgets')
-    .controller('BudgetsCtrl', function ($scope, budgetsResolve, lodash, $rootScope, $mdDialog, $mdMedia) {
+    .controller('BudgetsCtrl', function ($scope, Budget, lodash, $rootScope, $mdDialog, $mdMedia) {
       function showAddBudgetDialog (ev) {
         $mdDialog.show({
           templateUrl: 'app/routes/budgets/new-budget-dialog.html',
@@ -12,7 +12,7 @@
       }
 
       $scope.showAddBudgetDialog = showAddBudgetDialog;
-      $scope.budgets = budgetsResolve;
+      $scope.budgets = Budget;
       $scope.$mdMedia = $mdMedia;
 
 

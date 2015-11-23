@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('finciero.business.login.drv.fbLoginForm', [
+  angular.module('finciero.login.drv.fbLoginForm', [
     'finciero.svc.session'
   ]);
 

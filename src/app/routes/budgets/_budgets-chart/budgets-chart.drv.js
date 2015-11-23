@@ -87,6 +87,7 @@
               };
             },
             post: function ($scope) {
+              console.log($scope);
               $compile(element)($scope);
             }
           };

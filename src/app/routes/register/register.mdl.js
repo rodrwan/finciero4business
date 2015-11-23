@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('finciero.business.rte.register', [
+  angular.module('finciero.rte.register', [
     'ui.router',
     'angular-storage'
   ])

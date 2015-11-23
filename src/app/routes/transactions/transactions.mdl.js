@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('finciero.business.rte.transactions', [
+    .module('finciero.rte.transactions', [
       'finciero.cmp.accountsSidebar',
       'finciero.cmp.transactionsTable',
       'finciero.flt.commaToDot',

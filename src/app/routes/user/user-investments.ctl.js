@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('finciero.business.rte.user')
+  angular.module('finciero.rte.user')
     .controller('UserInvestmentsCtrl', function ($scope, $mdDialog, $rootScope, InvestmentsResolve, lodash, $moment) {
       function showAddDialog (ev) {
         $mdDialog.show({

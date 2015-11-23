@@ -1,11 +1,20 @@
 (function () {
   'use strict';
 
-  angular.module('finciero.business.rte.planning')
+  angular.module('finciero.rte.planning')
 
-  .controller('PlanningCtrl', function HomeController ($scope, $state) {
+  .controller('PlanningCtrl', function HomeController ($scope, $state, lodash) {
     $scope.tabsOptions = [];
     $scope.$state = $state;
-    $state.go('planning.balances')
+
+    if (lodash.contains($state.current.url, 'balances')) {
+      $scope.section = 'Balances';
+    } else if (lodash.contains($state.current.url, 'budgets')) {
+      $scope.section = 'Presupuestos';
+    } else if (lodash.contains($state.current.url, 'flow')) {
+      $scope.section = 'Flujo de Dinero';
+    }
+
+    $state.go('planning.budgets');
   });
 })();

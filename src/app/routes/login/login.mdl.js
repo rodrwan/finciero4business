@@ -1,10 +1,10 @@
 (function () {
   'use strict';
 
-  angular.module('finciero.business.rte.login', [
+  angular.module('finciero.rte.login', [
     'ui.router',
     'angular-storage',
-    'finciero.business.login.drv.fbLoginForm'
+    'finciero.login.drv.fbLoginForm'
   ])
 
   .config(function ($stateProvider) {

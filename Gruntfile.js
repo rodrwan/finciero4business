@@ -85,7 +85,7 @@ module.exports = function (grunt) {
       build: {
         options: {
           dest: 'src/app/init.js',
-          name: 'finciero.business.config',
+          name: 'finciero.config',
           wrap: '(function () {\n\'use strict\'\n\n {%= __ngModule %} })();'
         },
         constants: {
@@ -95,7 +95,7 @@ module.exports = function (grunt) {
       test: {
         options: {
           dest: 'src/app/init.js',
-          name: 'finciero.business.config',
+          name: 'finciero.config',
           wrap: '(function () {\n\'use strict\'\n\n {%= __ngModule %} })();'
         },
         constants: {
