@@ -107,7 +107,7 @@
           //   Socket.connect();
           // }
 
-          $rootScope.$on('bank-accounts:created', function (event, data) {
+          $rootScope.$on('bankAccount:created', function (event, data) {
             var find = lodash.find($scope.bankAccounts, {id: data.id});
 
             if (angular.isUndefined(find)) {
@@ -117,7 +117,7 @@
             }
           });
 
-          $rootScope.$on('bank-accounts:destroyed', function (event, data) {
+          $rootScope.$on('bankAccounts:destroyed', function (event, data) {
             $scope.bankAccounts.some(function (bankAccount, index) {
               if (bankAccount.id === data.id) {
                 $scope.bankAccounts.splice(index, 1);
@@ -127,7 +127,7 @@
             });
           });
 
-          $rootScope.$on('bank-accounts:updated', function (event, data) {
+          $rootScope.$on('bankAccounts:updated', function (event, data) {
             var newDatetime = $moment(data.updated_at);
             $scope.bankAccounts.some(function (bankAccount, index) {
               var currentDatetime;

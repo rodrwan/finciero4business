@@ -2,10 +2,10 @@
   'use strict';
 
   angular.module('finciero.svc.bankAccount')
-    .factory('BankAccount', function ($q, store, lodash) {
+    .factory('BankAccount', function ($q, store, lodash, Bank, LoadData) {
       var BankAccount = {
         post: function (data) {
-
+          return LoadData.addNewBankAccount(data.title);
         },
         getData: function () {
           var fakeData, $deferred = $q.defer();
@@ -39,8 +39,8 @@
           return $defer.promise;
         },
         getBankAccountName: function (id) {
-          var BankAccounts = store.get('BankAccounts');
-          return BankAccounts[id-1].bank;
+          var Banks = Bank;
+          return Banks[id-1].name;
         }
       }
 

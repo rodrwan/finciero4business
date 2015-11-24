@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('finciero.svc.loadData')
-    .factory('LoadData', function ($q, store) {
+    .factory('LoadData', function ($rootScope, $q, store) {
       var loadData = {
         initBankAccounts: function () {
           var $defer, bankAccounts, transactions;
@@ -236,10 +236,11 @@
           return $defer.promise;
         },
         addNewBankAccount: function (name) {
-          var $defer, bankAccouns, newBankAccouns;
+          var $defer, bankAccouns, newBankAccounts;
 
+          $defer = $q.defer();
           bankAccouns = store.get('BankAccounts');
-          newBankAccouns = {
+          newBankAccounts = {
             id: 2,
             name: name,
             bank: 'Santander',
@@ -252,9 +253,10 @@
               statement: 'asset'
             }]
           };
-          bankAccouns.push(newBankAccouns)
+          console.log(newBankAccounts)
+          bankAccouns.push(newBankAccounts)
           store.set('BankAccounts', bankAccouns);
-
+          console.log('new bank account added.');
           $defer.resolve('Data Saved');
           return $defer.promise;
         },

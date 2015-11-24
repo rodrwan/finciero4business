@@ -113,7 +113,17 @@
             $scope.subTitle = 'Lo que tienes';
           }
 
-          $rootScope.$on('bank-accounts:updated', function (event, data) {
+          $rootScope.$on('bankAccount:created', function (event, data) {
+            $scope.isLoading = true;
+            BankAccount.getBankAccountList()
+              .then(function (bankAccounts) {
+                $scope.bankAccounts = bankAccounts;
+                changeValues(bankAccounts);
+                $scope.isLoading = false;
+              });
+          });
+
+          $rootScope.$on('bankAccounts:updated', function (event, data) {
             $scope.isLoading = true;
 
             if (data.status === 'success') {

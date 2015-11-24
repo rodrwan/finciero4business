@@ -5,10 +5,10 @@
     .factory('Bank', function () {
       var Bank = [{
         id: 1,
-        name: 'Banco Santander'
+        name: 'Banco de Chile / Edwards Citi'
       }, {
         id: 2,
-        name: 'Banco de Chile'
+        name: 'Banco Santander'
       }];
 
       return Bank;
