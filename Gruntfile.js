@@ -252,21 +252,20 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
 
   grunt.registerTask('build', [
+    'clean',
     'sass',
-    'cssmin',
     'ngconstant:build',
     'concat',
     'ngAnnotate',
     'uglify',
     'copy',
-    'wiredep',
-    'includeSource:myTarget'
+    'includeSource:myTarget',
+    'wiredep'
   ]);
 
   grunt.registerTask('dev', [
     'clean',
     'sass',
-    // 'cssmin',
     'ngconstant:test',
     'concat',
     'ngAnnotate',
