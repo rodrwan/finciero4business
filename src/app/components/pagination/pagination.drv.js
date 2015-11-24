@@ -11,6 +11,8 @@
         },
         link: function ($scope) {
 
+          $scope.metaOptions = {};
+          $scope.metaOptions.current_page = 0;
           $scope.numberElements = Pagination.getValues().number_elements;
           $scope.initialIndex = 0;
 

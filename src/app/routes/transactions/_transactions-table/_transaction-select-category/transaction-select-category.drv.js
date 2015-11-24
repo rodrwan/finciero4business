@@ -1,8 +1,8 @@
-(function () {
+  (function () {
   'use strict';
 
   angular.module('finciero.cmp.transactionSelectCategory')
-    .directive('finTransactionSelectCategory', function ($rootScope, $log, CacheFactory) {
+    .directive('finTransactionSelectCategory', function ($rootScope, $log, CacheFactory, Category, lodash) {
       return {
         restrict: 'E',
         templateUrl: 'app/routes/transactions/_transactions-table/_transaction-select-category/transaction-select-category.html',
@@ -37,14 +37,21 @@
               });
           }
 
-          subCategorySelected = $scope.subCategories[$scope.transaction.sub_category_id];
+          // subCategorySelected = $scope.subCategories[$scope.transaction.sub_category_id];
+          Category.then(function (categories) {
+            var idx = lodash.findIndex(categories, function (chr) {
+              return chr.name === $scope.transaction;
+            })
+            console.log(idx)
+            subCategorySelected = categories[idx];
+            $scope.subCategorySelected = subCategorySelected;
 
-          if (angular.isDefined(subCategorySelected) && subCategorySelected.id === 1) {
-            $element.find('.chosen-container-single .chosen-single').addClass('uncategorized');
-          }
+            if (angular.isDefined(subCategorySelected) && subCategorySelected.id === 1) {
+              $element.find('.chosen-container-single .chosen-single').addClass('uncategorized');
+            }
+          });
 
           $scope.updateTransactionSubCategory = updateTransactionSubCategory;
-          $scope.subCategorySelected = subCategorySelected;
         }
       };
     });

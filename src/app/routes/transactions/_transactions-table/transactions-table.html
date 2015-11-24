@@ -111,9 +111,21 @@
                 {{transaction.movement | number: 0 | commaToDot}}
             </div>
             <div
-              class="lateral-space"
               flex="20">
-              {{ transaction.subCategory }}
+              <fin-transaction-select-category
+                ng-if="subCategories"
+                transaction="transaction.subCategory"
+                sub-categories="subCategories">
+              </fin-transaction-select-category>
+              <div
+                class="load"
+                ng-if="!subCategories">
+                <md-progress-circular
+                  md-diameter="12"
+                  class="loading"
+                  md-mode="indeterminate">
+                </md-progress-circular>
+              </div>
             </div>
             <div
               class="options"

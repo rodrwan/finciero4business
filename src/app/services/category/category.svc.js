@@ -48,6 +48,12 @@
       }, {
         id: 14,
         name: 'Aseo y Limpieza'
+      }, {
+        id: 15,
+        name: 'Ingresos'
+      }, {
+        id: 16,
+        name: 'Tecnología'
       }];
       setTimeout(function () {
         $defer.resolve(categories);
