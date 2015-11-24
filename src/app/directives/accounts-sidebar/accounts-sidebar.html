@@ -1,103 +1,40 @@
 <div class="sidemenu-container">
 <div class="accounts">
-
-  <div class="bank-account-container">
-
+  <div ng-show="isLoading" style="">
+    <md-progress-circular
+      md-diameter="25"
+      class="loading white md-default-theme"
+      style="margin:0 auto;"
+      md-mode="indeterminate">
+    </md-progress-circular>
+  </div>
+  <div class="bank-account-container" ng-repeat="bankAccount in bankAccounts">
     <div class="header">
       <div class="title">
-        <span>BANCO CHILE</span>
+        <span>{{ bankAccount.bank }}</span>
       </div>
-      <div class="balance">
-        <span>$29.000.000</span>
+      <div class="balance negative">
+        <span>
+          ${{ getBankAccountBalance(bankAccount.subAccounts) | roundNumber | number | commaToDot }}
+        </span>
       </div>
     </div>
-
-    <div class="sub-accounts-container">
-
+    <div class="sub-accounts-container" ng-repeat="subAccount in bankAccount.subAccounts">
       <div class="sub-account">
         <div class="title">
-          <span>Cuenta Corriente</span> <span class="number">*3008</span>
+          <span>
+            {{ subAccount.name }}
+            <span ng-if="subAccount.currency == 'international'"> Int.</span>
+          </span> <span class="number">{{ subAccount.number }}</span>
         </div>
-        <div class="balance positive">
-          <span>$23.000.000</span>
-        </div>
-      </div>
-
-      <div class="sub-account">
-        <div class="title">
-          <span>Visa</span> <span class="number">*2146</span>
-        </div>
-        <div class="balance positive">
-          <span>$900.000</span>
+        <div class="balance" ng-class="subAccount.balance > 0 && subAccount.statement == 'asset' ? 'positive' : 'negative'">
+          <span ng-if="subAccount.currency == 'national'">$</span>
+          <span ng-if="subAccount.currency == 'international'">USD&nbsp;</span>
+          <span>{{ subAccount.balance | roundNumber | number | commaToDot  }}</span>
         </div>
       </div>
-
-      <div class="sub-account">
-        <div class="title">
-          <span>Visa Int</span> <span class="number">*2146</span>
-        </div>
-        <div class="balance positive">
-          <span>USD 10.000</span>
-        </div>
-      </div>
-
-      <div class="sub-account">
-        <div class="title">
-          <span>MasterCard</span> <span class="number">*8448</span>
-        </div>
-        <div class="balance positive">
-          <span>$900.000</span>
-        </div>
-      </div>
-
-      <div class="sub-account">
-        <div class="title">
-          <span>MasterCard Int</span> <span class="number">*8448</span>
-        </div>
-        <div class="balance positive">
-          <span>USD 10.000</span>
-        </div>
-      </div>
-
-      <div class="sub-account">
-        <div class="title">
-          <span>Línea de crédito</span> <span class="number">*3008</span>
-        </div>
-        <div class="balance negative">
-          <span>-$900.000</span>
-        </div>
-      </div>
-
     </div>
-
   </div>
-
-  <div class="bank-account-container">
-
-    <div class="header">
-      <div class="title">
-        <span>santander</span>
-      </div>
-      <div class="balance">
-        <span>$14.053.190</span>
-      </div>
-    </div>
-
-    <div class="sub-accounts-container">
-
-      <div class="sub-account">
-        <div class="title">
-          <span>Cuenta Corriente</span> <span class="number">*5057</span>
-        </div>
-        <div class="balance positive">
-          <span>$29.000.000</span>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-
 </div>
 
 <div class="buttons" style="position:fixed; bottom:0px">

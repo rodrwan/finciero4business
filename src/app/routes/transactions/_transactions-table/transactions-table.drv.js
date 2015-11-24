@@ -91,8 +91,8 @@
             throw new Error('Invalid searchByDescription directive param: ' + $scope.searchByDescription);
           }
 
-          Category.getList().then(function (data) {
-            $scope.subCategories = data.subCategoriesList();
+          Category.then(function (data) {
+            $scope.subCategories = data;
           });
 
           sortOptions = {

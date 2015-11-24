@@ -23,7 +23,7 @@
             },
             transactionsResolve: function (Transaction, Pagination, $stateParams) {
               var pagination = Pagination.getValues($stateParams);
-              return Transaction;
+              return Transaction.getData();
             }
           },
           data: {

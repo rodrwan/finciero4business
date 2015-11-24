@@ -4,7 +4,8 @@
   angular.module('finciero.svc.subAccount', [
     'finciero.svc.bankAccount',
     'ngLodash',
-    'restangular'
-    ]);
+    'restangular',
+    'angular-storage'
+  ]);
 
 }());

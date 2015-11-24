@@ -6,7 +6,7 @@ html, body {
   height: 100%;
   width: 100%;
   background-color: $navbar-background-color;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   min-width: 1055px;
   margin:0;
   padding:0;
@@ -246,7 +246,7 @@ div.content-container {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          font: 300 10px / 25px Montserrat;
+          font: 300 11px / 25px Montserrat;
           color: #ffffff;
 
             .number {
@@ -282,6 +282,7 @@ div.content-container {
   .dashboard-container {
     display: flex;
     width: 100%;
+
     & .balances {
       display: flex;
       background-color: #f2f1f5;
@@ -337,6 +338,11 @@ div.content-container {
         background-color: #00c5c7;
       }
     }
+  }
+  h2 {
+    color: #a6a6a7;
+    align-self: flex-start;
+    font: 24px / 40px Montserrat;
   }
 }
 

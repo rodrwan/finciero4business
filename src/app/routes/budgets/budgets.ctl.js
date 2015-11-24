@@ -3,6 +3,7 @@
 
   angular.module('finciero.rte.budgets')
     .controller('BudgetsCtrl', function ($scope, Budget, lodash, $rootScope, $mdDialog, $mdMedia) {
+      $scope.$emit('changeTab', 'Presupuestos');
       function showAddBudgetDialog (ev) {
         $mdDialog.show({
           templateUrl: 'app/routes/budgets/new-budget-dialog.html',

@@ -2,23 +2,90 @@
   'use strict';
 
   angular.module('finciero.dashboard.drv.fbMoneyIndicator')
-  .directive('fbMoneyIndicator', function (BankAccount, $mdMedia, $rootScope) {
+  .directive('fbMoneyIndicator', function (FOREX, BankAccount, $mdMedia, $rootScope, lodash) {
       return {
         restrict: 'E',
         templateUrl: 'app/routes/dashboard/money-indicator/money-indicator.html',
         replace: true,
         scope: {},
         link: function ($scope, $element, $attrs) {
+          function getTotalIncome(bankAccounts) {
+            var subAccounts = [];
+            bankAccounts.forEach(function(bankAccount) {
+              subAccounts = subAccounts.concat(bankAccount.subAccounts);
+            });
+
+            var balance = lodash.reduce(subAccounts, function(result, subAccount) {
+              if (subAccount.statement === 'asset' && subAccount.balance > 0) {
+                if (subAccount.currency === 'international') {
+                  result += subAccount.balance * FOREX;
+                } else {
+                  result += subAccount.balance;
+                }
+              }
+
+              if (subAccount.statement === 'liability' && subAccount.balance < 0) {
+                if (subAccount.currency === 'international') {
+                  result -= subAccount.balance * FOREX;
+                } else {
+                  result -= subAccount.balance;
+                }
+              }
+
+              return result;
+            }, 0);
+
+            return balance;
+          }
+
+          function getTotalExpenses(bankAccounts) {
+            var subAccounts = [];
+            bankAccounts.forEach(function(bankAccount) {
+              subAccounts = subAccounts.concat(bankAccount.subAccounts);
+            });
+
+            var balance = lodash.reduce(subAccounts, function(result, subAccount) {
+              if (subAccount.statement === 'liability' && subAccount.balance > 0) {
+                console.log(subAccount.balance);
+                if (subAccount.currency === 'international') {
+                  result += subAccount.balance * FOREX;
+                } else {
+                  result += subAccount.balance;
+                }
+              }
+
+              if (subAccount.statement === 'asset' && subAccount.balance < 0) {
+                if (subAccount.currency === 'international') {
+                  result -= subAccount.balance * FOREX;
+                } else {
+                  result -= subAccount.balance;
+                }
+              }
+
+              return result;
+            }, 0);
+
+            return balance;
+          }
+
+          function getAvailable(bankAccounts) {
+            return getTotalIncome(bankAccounts) - getTotalExpenses(bankAccounts);
+          }
+
           function changeValues (bankAccounts) {
+
             var _money;
             if ($attrs.type === 'incomes') {
-              _money = bankAccounts.getTotalIncomes();
+              _money = getTotalIncome(bankAccounts);
+              console.log(_money)
               $scope.sign = _money > 0 ? true : false;
               $scope.money = Math.abs(_money);
             } else if ($attrs.type === 'expenses') {
-              $scope.money = bankAccounts.getTotalExpenses();
+              $scope.money = getTotalExpenses(bankAccounts);
+              console.log($scope.money);
             } else if ($attrs.type === 'available') {
-              $scope.money = bankAccounts.getAvailable();
+              $scope.money = getAvailable(bankAccounts);
+              console.log($scope.money);
             }
 
             $scope.isLoading = false;
@@ -33,7 +100,7 @@
           $scope.isOfType = isOfType;
           $scope.isLoading = true;
 
-          BankAccount
+          BankAccount.getBankAccountList()
             .then(function (bankAccounts) {
               $scope.bankAccounts = bankAccounts;
               changeValues(bankAccounts);

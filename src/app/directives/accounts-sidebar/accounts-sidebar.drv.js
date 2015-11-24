@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('finciero.drv.accountsSidebar')
-    .directive('fbAccountsSidebar', function ($mdDialog, BankAccount, $state, $rootScope, lodash, Restangular) {
+    .directive('fbAccountsSidebar', function (FOREX, $mdDialog, BankAccount, $state, $rootScope, lodash, Restangular) {
       return {
         templateUrl: 'app/directives/accounts-sidebar/accounts-sidebar.html',
         restrict: 'E',
@@ -45,23 +45,35 @@
           function parseDate (date) {
             return $moment(date).fromNow();
           }
+          $scope.isLoading = true;
+          BankAccount.getBankAccountList().then(function (bankAccounts) {
+            $scope.bankAccounts = bankAccounts;
+            $scope.isLoading = false;
+          });
 
-          // BankAccount.getList().then(function (bankAccounts) {
-          //   $scope.bankAccounts = lodash.map(bankAccounts, function (bankAccount) {
-          //     bankAccount.active = true;
-          //     bankAccount.loading = false;
-          //     bankAccount.subAccountsList = bankAccount.getAssetsLiabilitiesSubAccounts();
-          //      remove liquidated investments
-          //     if (bankAccount.is_investment_account) {
-          //       lodash.remove(bankAccount.subAccountsList, function (subAccount) {
-          //         return subAccount.investment.liquidated;
-          //       });
-          //     }
-          //     return bankAccount;
-          //   });
-          //   $scope.isLoadingBankAccounts = false;
-          // });
           $scope.$state = $state;
+
+          $scope.getBankAccountBalance = function (subAccounts) {
+            var balance = lodash.reduce(subAccounts, function(result, subAccount) {
+              if (subAccount.statement === 'asset') {
+                if (subAccount.currency === 'international') {
+                  result += subAccount.balance * FOREX;
+                } else {
+                  result += subAccount.balance;
+                }
+              } else {
+                if (subAccount.currency === 'international') {
+                  result -= subAccount.balance * FOREX;
+                } else {
+                  result -= subAccount.balance;
+                }
+              }
+
+              return result;
+            }, 0);
+
+            return balance;
+          };
 
           $scope.internationalCurrrency = function (data) {
             return data === 'international' ? 'Int.' : '';

@@ -31,7 +31,7 @@
 
   .config(function MLConfig (CATEGORY_API_URL, $stateProvider, $urlRouterProvider, CacheFactoryProvider, RestangularProvider) {
     $urlRouterProvider.otherwise('/login');
-
+    $urlRouterProvider.when('/planning', '/planning/budgets');
     $stateProvider.state('main', {
       url: '/',
       controller: 'AppCtrl',

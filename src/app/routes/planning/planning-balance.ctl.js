@@ -3,7 +3,7 @@
 
   angular.module('finciero.rte.planning')
 
-  .controller('PlanningBalancesCtrl', function HomeController ($scope) {
-
+  .controller('PlanningBalancesCtrl', function ($scope, $state) {
+    $scope.$emit('changeTab', 'Balances');
   });
 })();

@@ -3,7 +3,8 @@
 
   angular.module('finciero.svc.bankAccount', [
     'ngLodash',
-    'restangular'
+    'restangular',
+    'angular-storage'
   ]);
 
 }());

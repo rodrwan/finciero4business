@@ -32,8 +32,8 @@
 
           budgets = Budget;
 
-          $scope.categories = Category.getList().then(function (data) {
-            $scope.elements = filters.existInUserBudgets(data.allElements());
+          $scope.categories = Category.then(function (data) {
+            $scope.elements = data;
           }, function (err) {
             console.log('error to get categories in new budget directive', err);
           });

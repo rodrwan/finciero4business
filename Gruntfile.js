@@ -89,7 +89,8 @@ module.exports = function (grunt) {
           wrap: '(function () {\n\'use strict\'\n\n {%= __ngModule %} })();'
         },
         constants: {
-          CATEGORY_API_URL: 'http://finciero-business.herokuapp.com/api'
+          CATEGORY_API_URL: 'http://finciero-business.herokuapp.com/api',
+          FOREX: 700
         }
       },
       test: {
@@ -99,7 +100,8 @@ module.exports = function (grunt) {
           wrap: '(function () {\n\'use strict\'\n\n {%= __ngModule %} })();'
         },
         constants: {
-          CATEGORY_API_URL: 'http://localhost:' + process.env.PORT + '/api'
+          CATEGORY_API_URL: 'http://localhost:' + process.env.PORT + '/api',
+          FOREX: 700
         }
       }
     },

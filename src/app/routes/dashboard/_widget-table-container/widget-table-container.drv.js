@@ -18,7 +18,7 @@
             var options = {
               per_page: 5
             };
-            Transaction.then(function (data) {
+            Transaction.getData(5).then(function (data) {
               $scope.transactions = data;
               $scope.isLoading = true;
             }, function (err) {

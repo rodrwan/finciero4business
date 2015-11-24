@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('finciero.login.drv.fbLoginForm')
-  .directive('fbLoginForm', function ($rootScope, Session, Flash, $state, store) {
+  .directive('fbLoginForm', function ($rootScope, Session, LoadData, Flash, $state, store) {
     return {
       restrict: 'E',
       templateUrl: 'app/routes/login/login-form/login-form.html',
@@ -18,7 +18,11 @@
 
           $scope.isLoading = true;
           store.set('session', formatted);
-          $state.go('dashboard');
+          LoadData.initBankAccounts().then(function (status) {
+            console.log(status);
+            $state.go('dashboard');
+          });
+
           // Session.resource.post(formatted).then(function (response) {
           //   Session.setSession(response.token, response.meta.user);
           //   Socket.connect();

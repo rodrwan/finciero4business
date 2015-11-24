@@ -13,15 +13,55 @@
       <div class="table-container">
 
         <table class="table">
-
+          <thead>
           <tr class="header">
             <th></th>
             <th>Cuentas agregadas</th>
             <th>Nombre personalizado</th>
             <th>Saldo</th>
           </tr>
+          </thead>
           <!--EACH BANK ACCOUNT-->
-          <tr class="title">
+          <tbody>
+            <table class="table" ng-repeat="bankAccount in bankAccounts">
+              <tr class="title">
+                <td style="width: 40px; padding-left: 17px;" flex="100" layout-align="center end">
+                  <div
+                    class="options"
+                    fin-dropdown
+                    flex="10"
+                    hide-sm>
+                    <div class="dropdown-menu">
+                      <i class="fa fa-lg fa-chevron-down"></i>
+                    </div>
+                  </div>
+                </td>
+                <td class="account-name">{{ bankAccount.bank }}</td>
+                <td class="account-custom-name">{{ bankAccount.name }}</td>
+                <td class="account-balance positive">
+                  <span>${{ getBankAccountBalance(bankAccount.subAccounts) | roundNumber | number | commaToDot }}</span>
+                  </td>
+              </tr>
+
+              <tr class="sub-account" ng-repeat="subAccount in bankAccount.subAccounts">
+                <td></td>
+                <td align="left" class="account-name" style="width: 520px">
+                  {{ subAccount.name }}
+                  <span ng-if="subAccount.currency == 'international'"> Int.</span>
+                  {{ subAccount.number }}
+                </td>
+                <td></td>
+                <td class="account-balance" ng-class="subAccount.balance > 0 ? 'positive': 'negative'">
+                  <span ng-if="subAccount.currency == 'national'">$</span>
+                  <span ng-if="subAccount.currency == 'international'">USD</span>
+                  <span>{{ subAccount.balance | roundNumber | number | commaToDot  }}</span>
+                </td>
+                <td></td>
+              </tr>
+            </table>
+          </tbody>
+
+          <!-- <tr class="title">
             <td></td>
             <td class="account-name">Banco de Chile / Edwards Citi</td>
             <td class="account-custom-name">Cuenta Uso permanente</td>
@@ -54,8 +94,6 @@
 
           <tr class="separator"></tr>
 
-          <!-- *** end of bank account *** -->
-
           <tr class="title">
             <td></td>
             <td class="account-name">Banco de Chile / Edwards Citi</td>
@@ -93,7 +131,7 @@
             <td class="account-balance negative">
               <div>$120.000</div>
             </td>
-          </tr>
+          </tr> -->
 
         </table>
 

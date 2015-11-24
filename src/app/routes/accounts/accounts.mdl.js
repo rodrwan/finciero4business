@@ -5,7 +5,9 @@
     'ui.router',
     'angular-storage',
     'finciero.drv.fbMenu',
-    'finciero.cmp.bankAccount'
+    'finciero.cmp.bankAccount',
+    'finciero.svc.bankAccount',
+    'ngLodash'
   ])
 
   .config(function ($stateProvider) {

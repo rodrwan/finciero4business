@@ -90,8 +90,9 @@
             <div
               flex="15"
               class="lateral-space">
-              {{transaction.sub_account.name}}
-              {{internationalCurrency(transaction.sub_account.currency)}}
+              {{transaction.bankAccount.name}}<br/>
+              {{transaction.subAccount.name}}{{transaction.subAccount.number}}
+              {{internationalCurrency(transaction.subAccount.currency)}}
             </div>
             <div
               flex="30"

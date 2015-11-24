@@ -37,7 +37,7 @@
           }
 
           $scope.newBankAccount = {};
-          $scope.banks = Bank.getList().$object;
+          $scope.banks = Bank;
           $scope.sendForm = sendForm;
         }
       };

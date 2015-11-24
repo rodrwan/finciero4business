@@ -3,7 +3,7 @@
 
   angular.module('finciero.rte.dashboard')
 
-  .controller('DashboardCtrl', function HomeController (MENU, $scope) {
+  .controller('DashboardCtrl', function (MENU, $scope) {
     $scope.menu = MENU;
 
   });

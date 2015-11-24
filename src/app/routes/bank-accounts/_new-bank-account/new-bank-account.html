@@ -2,8 +2,7 @@
   <div class="form-group" layout="row" layout-align="center center">
     <select fin-focus-blur-form
             ng-model="newBankAccount.bank"
-            ng-options="bank.id as bank.name for bank in banks | filter:{status:'active'}"
-            ng-class="{error: newBankAccountForm.bank.$error.required && !newBankAccountForm.bank.$pristine}"
+            ng-options="bank.id as bank.name for bank in banks"
             name="bank"
             required>
       <option value="">Selecciona un banco</option>

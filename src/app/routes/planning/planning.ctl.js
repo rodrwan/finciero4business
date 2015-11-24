@@ -3,17 +3,14 @@
 
   angular.module('finciero.rte.planning')
 
-  .controller('PlanningCtrl', function HomeController ($scope, $state, lodash) {
+  .controller('PlanningCtrl', function ($scope, $state, lodash) {
     $scope.tabsOptions = [];
     $scope.$state = $state;
+    $scope.section = 'Presupuestos';
 
-    if (lodash.contains($state.current.url, 'balances')) {
-      $scope.section = 'Balances';
-    } else if (lodash.contains($state.current.url, 'budgets')) {
-      $scope.section = 'Presupuestos';
-    } else if (lodash.contains($state.current.url, 'flow')) {
-      $scope.section = 'Flujo de Dinero';
-    }
+    $scope.$on('changeTab', function (obj, value) {
+      $scope.section = value;
+    });
 
     $state.go('planning.budgets');
   });
