@@ -15,9 +15,9 @@
         <table class="table">
           <thead>
           <tr class="header">
-            <th></th>
-            <th>Cuentas agregadas</th>
-            <th>Nombre personalizado</th>
+            <th style="width:45px"></th>
+            <th style="width:425px">Cuentas agregadas</th>
+            <th style="width:500px">Nombre personalizado</th>
             <th>Saldo</th>
           </tr>
           </thead>
@@ -25,7 +25,7 @@
           <tbody>
             <table class="table" ng-repeat="bankAccount in bankAccounts">
               <tr class="title">
-                <td style="width: 40px; padding-left: 17px;" flex="100" layout-align="center end">
+                <td style="width: 50px; padding-left: 17px;" flex="100" layout-align="center end">
                   <div
                     class="options"
                     fin-dropdown
@@ -36,9 +36,9 @@
                     </div>
                   </div>
                 </td>
-                <td class="account-name">{{ bankAccount.bank }}</td>
-                <td class="account-custom-name">{{ bankAccount.name }}</td>
-                <td class="account-balance positive">
+                <td class="account-name" style="width:530px">{{ bankAccount.bank }}</td>
+                <td class="account-custom-name" style="width:635px">{{ bankAccount.name }}</td>
+                <td class="account-balance positive" style="width:130px">
                   <span>${{ getBankAccountBalance(bankAccount.subAccounts) | roundNumber | number | commaToDot }}</span>
                   </td>
               </tr>
