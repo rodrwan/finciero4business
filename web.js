@@ -54,8 +54,8 @@ app.use(function (req, res, next) {
   req.finciero = {};
   req.adminPanel = {};
 
-  req.finciero.api = require('./connection/api');
-  req.adminPanel.model = require('./models');
+  // req.finciero.api = require('./connection/api');
+  // req.adminPanel.model = require('./models');
   next();
 });
 
