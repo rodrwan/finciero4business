@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('finciero.drv.accountsSidebar')
-    .directive('fbAccountsSidebar', function (FOREX, $mdDialog, BankAccount, $state, $rootScope, lodash, Restangular) {
+    .directive('fbAccountsSidebar', function (FOREX, $mdDialog, BankAccount, $state, $rootScope, lodash, Restangular, store) {
       return {
         templateUrl: 'app/directives/accounts-sidebar/accounts-sidebar.html',
         restrict: 'E',
@@ -52,6 +52,7 @@
           });
 
           $scope.$state = $state;
+          $scope.lastUpdate = store.get('lastUpdate');
 
           $scope.getBankAccountBalance = function (subAccounts) {
             var balance = lodash.reduce(subAccounts, function(result, subAccount) {
@@ -110,6 +111,7 @@
           $rootScope.$on('bankAccount:created', function (event, data) {
             var find = lodash.find($scope.bankAccounts, {id: data.id});
 
+            $scope.lastUpdate = store.get('lastUpdate');
             if (angular.isUndefined(find)) {
               data.active = true;
               data.loading = true;

@@ -262,6 +262,12 @@
         },
         initTransactions: function () {
 
+        },
+        lastUpdate: function () {
+          store.set('lastUpdate', 'hace 1 día');
+        },
+        newUpdate: function () {
+          store.set('lastUpdate', 'Ahora');
         }
       };
 

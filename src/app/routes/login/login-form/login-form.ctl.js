@@ -18,7 +18,9 @@
 
           $scope.isLoading = true;
           store.set('session', formatted);
+
           LoadData.initBankAccounts().then(function (status) {
+            LoadData.lastUpdate();
             console.log(status);
             $state.go('dashboard');
           });

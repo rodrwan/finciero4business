@@ -10,7 +10,8 @@
     // 'angular-momentjs',
     'ngLodash',
     'slyRepeat',
-    'slyEvaluate'
+    'slyEvaluate',
+    'angular-storage'
   ]);
 
 }());

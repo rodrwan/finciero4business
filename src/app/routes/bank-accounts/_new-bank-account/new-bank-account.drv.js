@@ -20,7 +20,6 @@
             $scope.newBankAccount.username = RutHelper.format($scope.newBankAccount.username);
             formatted = lodash.pick($scope.newBankAccount, ['bank_id', 'title', 'username', 'password']);
             setTimeout(function () {
-              console.log(formatted);
               BankAccount.post(formatted)
                 .then(function (data) {
                   $rootScope.$emit('bankAccount:created', data);

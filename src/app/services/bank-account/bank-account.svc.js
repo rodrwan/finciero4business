@@ -5,6 +5,7 @@
     .factory('BankAccount', function ($q, store, lodash, Bank, LoadData) {
       var BankAccount = {
         post: function (data) {
+          LoadData.newUpdate();
           return LoadData.addNewBankAccount(data.title);
         },
         getData: function () {
