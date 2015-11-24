@@ -26,7 +26,7 @@
                   $mdDialog.hide();
                   FlashMessage.show('La cuenta bancaria ha sido creada con éxito.', true);
                 });
-            }, 15000);
+            }, 11000);
 
             // BankAccount.post({bank_account: formatted})
             //   .then(function (data) {

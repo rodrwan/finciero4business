@@ -375,6 +375,10 @@ div.login-container {
     display: flex;
     align-items: center;
     height: 150px;
+
+    & img {
+      width: 200px;
+    }
   }
 
   & .inputs {
@@ -745,6 +749,14 @@ div.planning-container {
         border-bottom: dotted 1px;
         font-size: $font-size-base;
         cursor: pointer;
+
+        & a {
+          text-decoration: none;
+        }
+
+        a:link, a:visited, a:hover, a:active {
+          color: $color-primary;
+        }
       }
     }
 
