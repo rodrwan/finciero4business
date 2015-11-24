@@ -3,7 +3,7 @@
 
   angular.module('finciero.rte.accounts')
 
-  .controller('AccountsCtrl', function (FOREX, $mdDialog, $scope, BankAccount, lodash) {
+  .controller('AccountsCtrl', function (FOREX, $mdDialog, $rootScope, $scope, BankAccount, lodash) {
     function showAddDialog (ev) {
       $mdDialog.show({
         templateUrl: 'app/routes/bank-accounts/new-bank-account-dialog.html',
@@ -38,5 +38,24 @@
 
       return balance;
     };
+
+    $scope.showAddBankAccountDialog = function (ev) {
+      $mdDialog.show({
+        templateUrl: 'app/routes/bank-accounts/new-bank-account-dialog.html',
+        clickOutsideToClose: true,
+        targetEvent: ev
+      });
+    };
+
+    $rootScope.$on('bankAccount:created', function (event, data) {
+      var find = lodash.find($scope.bankAccounts, {id: data.id});
+
+      $scope.lastUpdate = store.get('lastUpdate');
+      if (angular.isUndefined(find)) {
+        data.active = true;
+        data.loading = true;
+        $scope.bankAccounts.push(data);
+      }
+    });
   });
 })();
