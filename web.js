@@ -52,38 +52,38 @@ app.use(session({
 
 app.use(function (req, res, next) {
   req.finciero = {};
-  req.finciero4Business = {};
+  req.finciero = {};
 
   // req.finciero.api = require('./connection/api');
   // req.adminPanel.model = require('./models');
   next();
 });
 
-app.use(function (req, res, next) {
-  // var query, Users;
+// app.use(function (req, res, next) {
+//   var query, Users;
 
-  // Users = req.adminPanel.model.Users;
-  // if (req.session && req.session.user) {
-  //   query = {
-  //     where: {
-  //       username: req.session.user.username
-  //     },
-  //     attributes: ['username', 'password']
-  //   };
-  //   Users.findOne(query, {raw: true}).then(function (user) {
-  //     if (user) {
-  //       req.user = user;
-  //       delete req.user.password; // delete the password from the session
-  //       req.session.user = user;  // refresh the session value
-  //       res.locals.user = user;
-  //     }
-  //     // finishing processing the middleware and run the route
-  //     next();
-  //   });
-  // } else {
-  //   next();
-  // }
-});
+//   Users = req.adminPanel.model.Users;
+//   if (req.session && req.session.user) {
+//     query = {
+//       where: {
+//         username: req.session.user.username
+//       },
+//       attributes: ['username', 'password']
+//     };
+//     Users.findOne(query, {raw: true}).then(function (user) {
+//       if (user) {
+//         req.user = user;
+//         delete req.user.password; // delete the password from the session
+//         req.session.user = user;  // refresh the session value
+//         res.locals.user = user;
+//       }
+//       // finishing processing the middleware and run the route
+//       next();
+//     });
+//   } else {
+//     next();
+//   }
+// });
 
 // app.use(express.static(path.join(__dirname, 'build')));
 app.use('/', express.static('public/build'));
