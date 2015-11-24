@@ -17,16 +17,16 @@ if (fs.existsSync('.env')) {
 }
 
 routes = require('./routes/index');
-transactions = require('./routes/transactions');
-categories = require('./routes/categories');
-login = require('./routes/login');
-logout = require('./routes/logout');
-status = require('./routes/status');
-cConstraints = require('./routes/c-constraints');
-simpleLinks = require('./routes/simple-links');
-companies = require('./routes/companies');
-unknowns = require('./routes/unknowns');
-similarTransaction = require('./routes/similar-transaction');
+// transactions = require('./routes/transactions');
+// categories = require('./routes/categories');
+// login = require('./routes/login');
+// logout = require('./routes/logout');
+// status = require('./routes/status');
+// cConstraints = require('./routes/c-constraints');
+// simpleLinks = require('./routes/simple-links');
+// companies = require('./routes/companies');
+// unknowns = require('./routes/unknowns');
+// similarTransaction = require('./routes/similar-transaction');
 
 app = express();
 PORT = process.env.PORT || 8000;
@@ -100,16 +100,16 @@ function requireLogin (req, res, next) {
 
 // routes definition
 app.use('/', routes);
-app.use('/api/login', login);
-app.use('/api/transactions', transactions);
-app.use('/api/categories', categories);
-app.use('/api/logout', requireLogin, logout);
-app.use('/api/status', requireLogin, status);
-app.use('/api/c-constraints', requireLogin, cConstraints);
-app.use('/api/simple-links', requireLogin, simpleLinks);
-app.use('/api/companies', requireLogin, companies);
-app.use('/api/unknowns', requireLogin, unknowns);
-app.use('/api/similar-transaction', requireLogin, similarTransaction);
+// app.use('/api/login', login);
+// app.use('/api/transactions', transactions);
+// app.use('/api/categories', categories);
+// app.use('/api/logout', requireLogin, logout);
+// app.use('/api/status', requireLogin, status);
+// app.use('/api/c-constraints', requireLogin, cConstraints);
+// app.use('/api/simple-links', requireLogin, simpleLinks);
+// app.use('/api/companies', requireLogin, companies);
+// app.use('/api/unknowns', requireLogin, unknowns);
+// app.use('/api/similar-transaction', requireLogin, similarTransaction);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
