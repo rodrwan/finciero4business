@@ -2,49 +2,12 @@
   'use strict';
 
   angular.module('finciero.svc.transactions')
-  .factory('Transaction', function ($q) {
+  .factory('Transaction', function ($q, store) {
     var Transaction = {
       getData: function (perPage) {
         var transactions, $defer = $q.defer();
 
-        transactions = [{
-          date: '09/03/2015',
-          description: 'Dummy description 1',
-          movement: -8228,
-          subCategory: 'Restaurantes',
-          subAccount: {
-            name: 'Cuenta Corriente',
-            number: '*3008'
-
-          },
-          bankAccount: {
-            name: 'Banco Chile'
-          }
-        }, {
-          date: '09/03/2015',
-          description: 'Dummy description 2',
-          movement: -58228,
-          subCategory: 'Regalos',
-          subAccount: {
-            name: 'Visa',
-            number: '*2146'
-          },
-          bankAccount: {
-            name: 'Banco Chile'
-          }
-        }, {
-          date: '09/03/2015',
-          description: 'Traspaso: ',
-          movement: 2345678,
-          subCategory: 'Traspaso Entre Cuentas',
-          subAccount: {
-            name: 'Cuenta Corriente',
-            number: '*3008'
-          },
-          bankAccount: {
-            name: 'Banco Chile'
-          }
-        }];
+        transactions = store.get('Transactions');
 
         if (typeof perPage === 'undefined') {
           setTimeout(function () {

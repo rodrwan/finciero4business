@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('finciero.cmp.transactionsTable')
-    .directive('finTransactionsTable', function ($log, $rootScope, $mdDialog, Category, lodash) {
+    .directive('finTransactionsTable', function ($log, $rootScope, $mdDialog, Category, lodash, BankAccount, SubAccount) {
       return {
         restrict: 'E',
         templateUrl: 'app/routes/transactions/_transactions-table/transactions-table.html',
@@ -14,13 +14,28 @@
         },
         link: function ($scope, $element, $attrs) {
           var showPagination, sortOptions;
+          // pre-processing data.
+          $scope.transactions = $scope.transactions.sort(function(a, b) {
+            return moment(b.date, 'DD/MM/YYYY').toDate() - moment(a.date, 'DD/MM/YYYY').toDate();
+          });
+
+          $scope.transactions = lodash.map($scope.transactions, function (transaction) {
+            transaction.bankAccount = {};
+            transaction.bankAccount.name = BankAccount.getBankAccountName(transaction.subAccount.bankAccountId);
+            transaction.subAccountData = SubAccount.getSubAccountsData(
+              transaction.subAccount.bankAccountId,
+              transaction.subAccount.id
+            );
+            return transaction;
+          });
 
           function parseDate (transaction) {
             var today, yesterday, formatDate, returnVal;
 
             today = moment(new Date()).format('DD/MM/YYYY');
             yesterday = moment(new Date()).subtract(1, 'day').format('DD/MM/YYYY');
-            formatDate = moment(transaction.date, 'YYYY-MM-DD').format('DD/MM/YYYY');
+            // formatDate = moment(transaction.date, 'YYYY-MM-DD').format('DD/MM/YYYY');
+            formatDate = moment(transaction.date, 'DD/MM/YYYY').format('DD/MM/YYYY');
 
             if (formatDate === today) {
               returnVal = 'Hoy';

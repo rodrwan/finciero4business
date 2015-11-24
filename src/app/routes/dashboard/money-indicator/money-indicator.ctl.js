@@ -46,7 +46,6 @@
 
             var balance = lodash.reduce(subAccounts, function(result, subAccount) {
               if (subAccount.statement === 'liability' && subAccount.balance > 0) {
-                console.log(subAccount.balance);
                 if (subAccount.currency === 'international') {
                   result += subAccount.balance * FOREX;
                 } else {
@@ -77,15 +76,12 @@
             var _money;
             if ($attrs.type === 'incomes') {
               _money = getTotalIncome(bankAccounts);
-              console.log(_money)
               $scope.sign = _money > 0 ? true : false;
               $scope.money = Math.abs(_money);
             } else if ($attrs.type === 'expenses') {
               $scope.money = getTotalExpenses(bankAccounts);
-              console.log($scope.money);
             } else if ($attrs.type === 'available') {
               $scope.money = getAvailable(bankAccounts);
-              console.log($scope.money);
             }
 
             $scope.isLoading = false;

@@ -37,6 +37,10 @@
           }, 1000);
 
           return $defer.promise;
+        },
+        getBankAccountName: function (id) {
+          var BankAccounts = store.get('BankAccounts');
+          return BankAccounts[id-1].bank;
         }
       }
 

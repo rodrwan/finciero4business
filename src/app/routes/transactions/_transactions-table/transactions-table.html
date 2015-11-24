@@ -91,8 +91,7 @@
               flex="15"
               class="lateral-space">
               {{transaction.bankAccount.name}}<br/>
-              {{transaction.subAccount.name}}{{transaction.subAccount.number}}
-              {{internationalCurrency(transaction.subAccount.currency)}}
+              {{transaction.subAccountData.name}}&nbsp;{{transaction.subAccountData.number}}
             </div>
             <div
               flex="30"
@@ -107,7 +106,9 @@
               }"
               flex="15"
               class="lateral-space">
-              $ {{transaction.movement | number: 0 | commaToDot}}
+                <span ng-if="transaction.subAccountData.currency == 'national'">$</span>
+                <span ng-if="transaction.subAccountData.currency == 'international'">USD&nbsp;</span>
+                {{transaction.movement | number: 0 | commaToDot}}
             </div>
             <div
               class="lateral-space"
