@@ -30,7 +30,7 @@
           <span class="title"><a href="#/transfers" title="Transferencias">TRANSFERENCIAS</a></span>
         </div>
  -->
-        <div class="link" ng-class="{active: $state.contains('planning')}">
+        <div class="link" ng-class="{active: $state.is('planning.budgets') || $state.is('planning.balances')}">
           <span class="icon ion-android-checkbox-outline"></span>
           <span class="title"><a href="#/planning" title="Planificación">PLANIFICACIÓN</a></span>
         </div>
